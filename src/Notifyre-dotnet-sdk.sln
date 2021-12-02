@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Notifyre", "Notifyre\Notifyre.csproj", "{38673500-BD30-48A4-9028-17A12C350F07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotifyreTests", "NotifyreTests\NotifyreTests.csproj", "{F33380CD-80C0-4EBE-8D30-41F4FC42F8D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotifyreTests", "NotifyreTests\NotifyreTests.csproj", "{F33380CD-80C0-4EBE-8D30-41F4FC42F8D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

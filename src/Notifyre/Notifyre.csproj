@@ -1,31 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-    <Description>Notifyre.net is the official Notifyre .NET core library for the Notifyre API</Description>
-    <AssemblyTitle>Notifyre.net</AssemblyTitle>
-    <VersionPrefix>1.0.0</VersionPrefix>
-    <Version>1.0.0</Version>
-    <LangVersion>8</LangVersion>
-    <Authors>GoLogic Group</Authors>
-    <Company>GoLogic Group</Company>
-    <TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
-    <AssemblyName>Notifyre.net</AssemblyName>
-    <PackageId>Notifyre.net</PackageId>
-    <PackageTags>notifyre;fax;sms</PackageTags>
-    <PackageProjectUrl>https://github.com/gologicgroup/notifyre-dotnet-sdk</PackageProjectUrl>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <SignAssembly>True</SignAssembly>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Description>Notifyre.net is the official Notifyre .NET core library for the Notifyre API</Description>
+		<AssemblyTitle>Notifyre.net</AssemblyTitle>
+		<VersionPrefix>1.0.1</VersionPrefix>
+		<Version>1.0.1</Version>
+		<LangVersion>8</LangVersion>
+		<Authors>GoLogic Group</Authors>
+		<Company>GoLogic Group</Company>
+		<TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
+		<AssemblyName>Notifyre.net</AssemblyName>
+		<PackageId>Notifyre.net</PackageId>
+		<PackageTags>notifyre;fax;sms</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/gologicgroup/notifyre-dotnet-sdk</PackageProjectUrl>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<SignAssembly>True</SignAssembly>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<None Include="..\..\LICENSE" Pack="true" PackagePath="" />
+		<None Include="..\..\README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 </Project>

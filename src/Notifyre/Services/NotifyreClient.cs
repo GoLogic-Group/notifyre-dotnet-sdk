@@ -12,11 +12,8 @@ namespace Notifyre
 {
     public abstract class NotifyreClient
     {
-#if DEBUG
-        protected string BasePath => $"https://api.dev.notifyre.com/{Version}";
-#else
         protected string BasePath => $"https://api.notifyre.com/{Version}";
-#endif
+
         protected virtual string Version => "20210928";
 
         protected abstract string Path { get; }
@@ -40,7 +37,7 @@ namespace Notifyre
                     MissingMemberHandling = MissingMemberHandling.Error
                 });
             }
-            catch (JsonReaderException ex)
+            catch (JsonReaderException)
             {
                 if (!message.IsSuccessStatusCode)
                 {
@@ -56,7 +53,7 @@ namespace Notifyre
                 }
                 throw new NotifyreException($"The response could not be deserialized: {ex.Message}");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw BuildException(message);
             }
