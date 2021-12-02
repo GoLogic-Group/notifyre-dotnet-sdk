@@ -1,0 +1,26 @@
+﻿{
+  "SmsNumbers": [
+    {
+      "ID": "39be4fb9-a875-468a-904d-c52d4dad21ee",
+      "CountryCode": 61,
+      "AssignedNumber": 416234582,
+      "E164": "+61416234582",
+      "Provider": "AATP",
+      "Status": "active",
+      "SubscriptionID": "616bdf0a9400548a177ccd47",
+      "CreatedDateUtc": null,
+      "LastModifiedDateUtc": 1634459402,
+      "StartDateUtc": 1634392800,
+      "FinishDateUtc": null
+    }
+  ],
+  "SmsSenderIds": [
+    {
+      "ID": "18194c53-a577-4c25-ba48-0cf4fd3054d4",
+      "Name": "SenderId",
+      "Status": "active",
+      "CreatedDateUtc": 1632727486,
+      "LastModifiedDateUtc": 1632727486
+    }
+  ]
+}
