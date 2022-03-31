@@ -5,7 +5,7 @@ namespace Notifyre.Services.Fax.FaxSend.SubmitFax.GetDocumentStatus
     internal class GetDocumentStatusRequest
     {
         [RouteParam]
-        public string ID { get; set; }
+        public string FileName { get; set; }
 
     }
 }

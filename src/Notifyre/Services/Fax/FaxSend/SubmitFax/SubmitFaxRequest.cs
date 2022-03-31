@@ -101,7 +101,7 @@ namespace Notifyre
     {
         public const string FaxNumber = "fax_number";
         public const string Contact = "contact";
-        public const string Group = "Group";
+        public const string Group = "group";
 
     }
 

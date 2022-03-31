@@ -21,7 +21,7 @@ namespace Notifyre.Services.Fax.FaxSend
         protected string RecipientsEndpoint => "recipients";
         protected string ConversionEndpoint => "conversion";
         protected string CoverPagesEndpoint => "fax/coverpages";
-        private TimeSpan _conversionTimeout => TimeSpan.FromSeconds(30);
+        private TimeSpan _conversionTimeout => TimeSpan.FromSeconds(100);
 
         public FaxSendService(NotifyreConfiguration notifyreConfiguration) : base(notifyreConfiguration)
         {
@@ -44,7 +44,7 @@ namespace Notifyre.Services.Fax.FaxSend
             DownloadFaxRequest request
         )
         {
-            var uri = UrlUtil.CreateUrlWithQuery(request, Address, RecipientsEndpoint, request.ID.ToString(), DownloadEndpoint);
+            var uri = UrlUtil.CreateUrlWithQuery(request, Address, RecipientsEndpoint, request.RecipientID.ToString(), DownloadEndpoint);
             var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
             return (await ReadJsonResponse<DownloadFaxResponse>(result).ConfigureAwait(false)).Payload;
         }
@@ -117,35 +117,35 @@ namespace Notifyre.Services.Fax.FaxSend
             }
         }
 
-        private async Task<BaseResponse<string>> ObserveDocumentStatus(string id)
+        private async Task<BaseResponse<GetDocumentStatusResponse>> ObserveDocumentStatus(string id)
         {
             DateTime conversionStart = DateTime.UtcNow;
             while (conversionStart.Add(_conversionTimeout).CompareTo(DateTime.UtcNow) > 0)
             {
-                var request = new GetDocumentStatusRequest() { ID = id };
+                var request = new GetDocumentStatusRequest() { FileName = id };
 
                 try
                 {
                     var result = await GetDocumentStatusAsync(request);
-                    if (result.Status == DocumentConversionStatusType.Completed)
+                    if (result.Status == DocumentConversionStatusType.Successful)
                     {
-                        return new BaseResponse<string>(true, (int)HttpStatusCode.OK);
+                        return new BaseResponse<GetDocumentStatusResponse>(true, (int)HttpStatusCode.OK) { Payload = result };
                     }
                     else if (result.Status == DocumentConversionStatusType.Failed)
                     {
-                        return new BaseResponse<string>(false, (int)HttpStatusCode.InternalServerError, DocumentConversionStatusType.Failed);
+                        return new BaseResponse<GetDocumentStatusResponse>(false, (int)HttpStatusCode.InternalServerError, DocumentConversionStatusType.Failed);
                     }
                 }
                 catch (NotifyreException ex)
                 {
                     if (ex.StatusCode != (int)HttpStatusCode.NotFound)
                     {
-                        return new BaseResponse<string>(false, ex.StatusCode, DocumentConversionStatusType.Failed);
+                        return new BaseResponse<GetDocumentStatusResponse>(false, ex.StatusCode, DocumentConversionStatusType.Failed);
                     }
                 }
                 await Task.Delay(3 * 1000);
             }
-            return new BaseResponse<string>(false, (int)HttpStatusCode.BadRequest, DocumentConversionStatusType.Timeout);
+            return new BaseResponse<GetDocumentStatusResponse>(false, (int)HttpStatusCode.BadRequest, DocumentConversionStatusType.Failed);
         }
 
         private async Task<SubmitDocumentResponse> SubmitDocumentAsync(
@@ -162,7 +162,7 @@ namespace Notifyre.Services.Fax.FaxSend
             GetDocumentStatusRequest request
         )
         {
-            var uri = UrlUtil.CreateUrl(Address, ConversionEndpoint, request.ID);
+            var uri = UrlUtil.CreateUrl(Address, ConversionEndpoint, request.FileName);
             var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
             return (await ReadJsonResponse<GetDocumentStatusResponse>(result).ConfigureAwait(false)).Payload;
         }

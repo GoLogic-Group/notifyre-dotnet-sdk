@@ -5,7 +5,7 @@ namespace Notifyre
 {
     public class DownloadFaxRequest
     {
-        public Guid ID { get; set; }
+        public Guid RecipientID { get; set; }
         [QueryParam(typeof(FileTypes))]
         public DownloadFaxRequestFileTypes FileType { get; set; }
 
