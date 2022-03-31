@@ -72,11 +72,11 @@ namespace NotifyreTests.Services
                 }
                 else if (_statusAttempts == 1 || _statusAttempts == 2)
                 {
-                    msg = "{\"payload\":{\"id\":\"6787bea0-d222-4870-811b-1192eef28b34\",\"status\":\"Routed\",\"pages\":null,\"fileName\":\"f1a901c1-a4b7-4a43-b00d-15da02fca38d\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                    msg = "{\"payload\":{\"id\":\"6787bea0-d222-4870-811b-1192eef28b34\",\"status\":\"converting\",\"pages\":null,\"fileName\":\"f1a901c1-a4b7-4a43-b00d-15da02fca38d\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
                 }
                 else
                 {
-                    msg = "{\"payload\":{\"id\":\"6787bea0-d222-4870-811b-1192eef28b34\",\"status\":\"Completed\",\"pages\":1,\"fileName\":\"f1a901c1-a4b7-4a43-b00d-15da02fca38d\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                    msg = "{\"payload\":{\"id\":\"6787bea0-d222-4870-811b-1192eef28b34\",\"status\":\"successful\",\"pages\":1,\"fileName\":\"f1a901c1-a4b7-4a43-b00d-15da02fca38d\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
                 }
                 _statusAttempts++;
             }

@@ -115,7 +115,7 @@ namespace NotifyreTests.Services.Fax.FaxSend
             var request = new DownloadFaxRequest()
             {
                 FileType = DownloadFaxRequestFileTypes.Pdf,
-                ID = new Guid("9aca0071-2b61-4beb-bad2-a3ec8ce611e5")
+                RecipientID = new Guid("9aca0071-2b61-4beb-bad2-a3ec8ce611e5")
             };
 
             // Act 
