@@ -232,7 +232,7 @@ namespace NotifyreTests.Services.Sms
             // Arrange
             var request = new ListSmsRepliesRequest()
             {
-                FromDate = new DateTime(2021, 09, 20)
+                FromDate = new DateTime(2021, 09, 20).ToUnixTimeStamp()
             };
             var service = new SmsService(_HttpHandlerFake);
 

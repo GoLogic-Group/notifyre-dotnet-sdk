@@ -23,7 +23,7 @@ namespace NotifyreTests.Services
             {
                 msg = @"<?xml version=""1.0"" ?><GetCapabilities service=""WFS"" version=""1.0.0"" xmlns=""http://www.opengis.net/wfs"" />";
             }
-            else if (url.AbsoluteUri.Contains("/sms/received?") && url.AbsoluteUri.Contains("2021-09-20")) // list sms replies request
+            else if (url.AbsoluteUri.Contains("/sms/received?") && url.AbsoluteUri.Contains("1632096000")) // list sms replies request
             {
                 msg = "{\"payload\":{\"smsReplies\":[{\"recipientID\":\"baf0be23-f102-48dd-90f5-2183c19cf890\",\"recipientNumber\":\"+61416906715\",\"senderNumber\":\"+61477789874\",\"replyID\":\"a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a\",\"message\":\"Gologic reply 1\",\"receivedDateUtc\":1635717853}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }

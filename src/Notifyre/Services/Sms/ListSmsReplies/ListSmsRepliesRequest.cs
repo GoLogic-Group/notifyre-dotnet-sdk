@@ -6,10 +6,10 @@ namespace Notifyre
     public class ListSmsRepliesRequest
     {
         [QueryParam]
-        public DateTime? FromDate { get; set; }
+        public long? FromDate { get; set; }
 
         [QueryParam]
-        public DateTime? ToDate { get; set; }
+        public long? ToDate { get; set; }
 
         [QueryParam]
         public ListSmsRepliesRequestSortTypes? Sort { get; set; }
