@@ -79,7 +79,7 @@ namespace Notifyre.Services.Fax.FaxSend
             if (results.All(x => x.Success))
             {
                 // Submit fax
-                var sendFaxRequest = new SendFaxRequest(request, uploads.Select(x => x.Payload.FileID).ToArray());
+                var sendFaxRequest = new SendFaxRequest(request, results.Select(x => x.Payload.ID).ToArray());
                 var uri = UrlUtil.CreateUrl(Address);
                 var body = JsonUtil.CreateBody(sendFaxRequest);
                 var result = await _HttpClient.PostAsync(uri, body).ConfigureAwait(false);
