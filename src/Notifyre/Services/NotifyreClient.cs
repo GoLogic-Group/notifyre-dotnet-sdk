@@ -14,7 +14,7 @@ namespace Notifyre
     {
         protected string BasePath => $"https://api.notifyre.com/{Version}";
 
-        protected virtual string Version => "20210928";
+        protected virtual string Version => "20220526";
 
         protected abstract string Path { get; }
 
