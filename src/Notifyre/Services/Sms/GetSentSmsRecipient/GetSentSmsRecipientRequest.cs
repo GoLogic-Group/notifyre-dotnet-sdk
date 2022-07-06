@@ -3,10 +3,12 @@ using System;
 
 namespace Notifyre
 {
-    public class GetSentSmsRequest
+    public class GetSentSmsRecipientRequest
     {
         [RouteParam]
         public Guid MessageID { get; set; }
+        [RouteParam]
+        public Guid RecipientID { get; set; }
 
     }
 }

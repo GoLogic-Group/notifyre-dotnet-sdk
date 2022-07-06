@@ -2,7 +2,7 @@
 
 namespace Notifyre
 {
-    public class GetSentSmsResponse
+    public class GetSentSmsRecipientResponse
     {
         public Guid ID { get; set; }
 
@@ -43,7 +43,9 @@ namespace Notifyre
             public decimal CostPerPart { get; set; }
 
             public string Status { get; set; }
+
             public string StatusMessage { get; set; }
+
             public long? QueuedDateUtc { get; set; }
 
             public long? CompletedDateUtc { get; set; }

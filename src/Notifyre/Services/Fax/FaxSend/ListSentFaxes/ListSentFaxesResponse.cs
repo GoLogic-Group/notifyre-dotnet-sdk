@@ -21,6 +21,7 @@ namespace Notifyre
             public bool HighQuality { get; set; }
             public int Pages { get; set; }
             public string Status { get; set; }
+            public string FailedMessage { get; set; }
         }
     }
 }
