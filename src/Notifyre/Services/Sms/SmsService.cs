@@ -42,11 +42,18 @@ namespace Notifyre
             GetSentSmsRequest request
         )
         {
-            var uri = UrlUtil.CreateUrl(Address, request.MessageID.ToString(), RecipientsEndpoint, request.RecipientID.ToString());
+            var uri = UrlUtil.CreateUrl(Address, request.MessageID.ToString());
             var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
             return (await ReadJsonResponse<GetSentSmsResponse>(result).ConfigureAwait(false)).Payload;
         }
-
+        public async Task<GetSentSmsRecipientResponse> GetSentSmsRecipientAsync(
+            GetSentSmsRecipientRequest request
+        )
+        {
+            var uri = UrlUtil.CreateUrl(Address, request.MessageID.ToString(), RecipientsEndpoint, request.RecipientID.ToString());
+            var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
+            return (await ReadJsonResponse<GetSentSmsRecipientResponse>(result).ConfigureAwait(false)).Payload;
+        }
         public async Task<ListSmsRepliesResponse> ListSmsRepliesAsync(
             ListSmsRepliesRequest request
         )

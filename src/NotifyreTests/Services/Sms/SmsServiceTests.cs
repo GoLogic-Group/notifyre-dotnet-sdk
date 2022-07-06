@@ -116,8 +116,35 @@ namespace NotifyreTests.Services.Sms
         {
             // Arrange
             var messageId = new Guid("2bdfff1a-461d-4b5c-b0bc-69af5535fc41"); // see above example response
-            var recipientID = new Guid("120a5a36-937c-47c0-8f2d-74d1ea06c012");
             var request = new GetSentSmsRequest()
+            {
+                MessageID = messageId,
+            };
+            var service = new SmsService(_HttpHandlerFake);
+
+            // Act 
+            var result = await service.GetSentSmsAsync(request);
+
+            // Assert
+            result.Status.Should().Be("queued");
+            result.ID.Should().Be(messageId);
+            result.AccountID.Should().Be("AZ07NWWI");
+            result.SubmittedDateUtc.Should().Be(1630541581);
+            result.CreatedDateUtc.Should().Be(1630541580);
+            result.CompletedDateUtc.Should().BeNull();
+            result.Recipient.ID.Should().Be("120a5a36-937c-47c0-8f2d-74d1ea06c012");
+            result.Recipient.ToNumber.Should().Be("+61477345123");
+            result.Recipient.QueuedDateUtc.Should().Be(1630541580);
+            result.Recipient.FromNumber.Should().Be("Shared Number (+61416906716)");
+        }
+
+        [Fact]
+        public async Task GetSentSmsRecipientAsync_ValidInput_ReturnsOk()
+        {
+            // Arrange
+            var messageId = new Guid("2bdfff1a-461d-4b5c-b0bc-69af5535fc41"); // see above example response
+            var recipientID = new Guid("120a5a36-937c-47c0-8f2d-74d1ea06c012");
+            var request = new GetSentSmsRecipientRequest()
             {
                 MessageID = messageId,
                 RecipientID = recipientID
@@ -125,7 +152,7 @@ namespace NotifyreTests.Services.Sms
             var service = new SmsService(_HttpHandlerFake);
 
             // Act 
-            var result = await service.GetSentSmsAsync(request);
+            var result = await service.GetSentSmsRecipientAsync(request);
 
             // Assert
             result.Status.Should().Be("queued");

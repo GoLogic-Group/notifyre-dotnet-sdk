@@ -98,7 +98,7 @@ namespace NotifyreTests.Services.Fax.FaxReceive
             var result = await service.DownloadReceivedFaxAsync(request);
 
             // Assert
-            result.TiffBase64.Should().Be("xyz"); // see above example response
+            result.Base64Str.Should().Be("xyz"); // see above example response
         }
 
         /*{
