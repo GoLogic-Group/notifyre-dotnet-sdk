@@ -272,7 +272,6 @@ namespace NotifyreTests.Services.Sms
             actual.RecipientID.Should().Be(new Guid("baf0be23-f102-48dd-90f5-2183c19cf890"));
             actual.RecipientNumber.Should().Be("+61416906715");
             actual.SenderNumber.Should().Be("+61477789874");
-            actual.ReplyID.Should().Be("a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a");
             actual.Message.Should().Be("Gologic reply 1");
             actual.ReceivedDateUtc.Should().Be(1635717853);
         }
