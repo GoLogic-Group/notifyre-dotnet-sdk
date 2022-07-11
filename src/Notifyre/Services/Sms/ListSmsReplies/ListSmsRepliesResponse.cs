@@ -17,9 +17,7 @@ namespace Notifyre
 
             public List<SmsReplyDetailDto> ReplyDetails { get; set; }
 
-            public string Message { get; set; }
-
-            public long ReceivedDateUtc { get; set; }
+            public long CreatedDateUtc { get; set; }
 
             public ContactDetailsDto ContactDetails { get; set; }
 
