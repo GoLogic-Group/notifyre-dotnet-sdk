@@ -15,7 +15,13 @@ namespace Notifyre
 
             public long? CreatedDateUtc { get; set; }
 
-            public long ContactsCount { get; set; }
+            public long TotalContacts { get; set; }
+
+            public long TotalUnsubscribed { get; set; }
+
+            public long TotalSMSContacts { get; set; }
+
+            public long TotalFaxContacts { get; set; }
         }
     }
 }
