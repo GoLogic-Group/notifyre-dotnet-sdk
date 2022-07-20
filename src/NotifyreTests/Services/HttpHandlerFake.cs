@@ -94,7 +94,7 @@ namespace NotifyreTests.Services
             }
             else if (url.AbsoluteUri.Contains("addressbook/groups")) // list groups
             {
-                msg = "{\"payload\":{\"groups\":[{\"id\":null,\"name\":\"All Contacts\",\"createdDateUtc\":null,\"contactsCount\":2},{\"id\":\"9735311e-f160-45d0-b05f-7a5626cb1d22\",\"name\":\"another\",\"createdDateUtc\": 1630454407,\"contactsCount\":2}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"groups\":[{\"id\":null,\"name\":\"All Contacts\",\"createdDateUtc\":null,\"totalContacts\":2,\"totalUnsubscribed\":0,\"totalSMSContacts\":2,\"totalFaxContacts\":2},{\"id\":\"9735311e-f160-45d0-b05f-7a5626cb1d22\",\"name\":\"another\",\"createdDateUtc\": 1630454407,\"totalContacts\":2,\"totalUnsubscribed\":0,\"totalSMSContacts\":2,\"totalFaxContacts\":2}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
             else if (url.AbsoluteUri.Contains("/fax/send/recipients/9aca0071-2b61-4beb-bad2-a3ec8ce611e5/download")) // download fax sent
             {

@@ -27,12 +27,14 @@ namespace Notifyre
 
             public string MobileNumber { get; set; }
 
+            public bool Unsubscribed { get; set; }
+
             public List<GroupDto> Groups { get; set; }
 
             public List<CustomFieldDto> CustomFields { get; set; }
 
             public long CreatedDateUtc { get; set; }
-
+            
             public class GroupDto
             {
                 public Guid ID { get; set; }
