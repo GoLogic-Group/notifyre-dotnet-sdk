@@ -17,7 +17,8 @@ namespace Notifyre
         public bool OptOutMessage { get; set; }
         [BodyParam]
         public bool AddUnsubscribeLink { get; set; }
-
+        [BodyParam]
+        public string CallbackUrl { get; set; }
     }
 
     public class SmsRecipient
