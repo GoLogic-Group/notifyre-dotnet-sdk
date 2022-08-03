@@ -13,7 +13,7 @@ namespace Notifyre
 
         public string CreatedBy { get; set; }
 
-        public List<RecipientDto> Recipient { get; set; }
+        public List<RecipientDto> Recipients { get; set; }
 
         public string Status { get; set; }
 

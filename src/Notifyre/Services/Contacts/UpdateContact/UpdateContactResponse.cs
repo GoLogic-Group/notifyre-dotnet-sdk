@@ -23,6 +23,8 @@ namespace Notifyre
 
         public List<CustomFieldDto> CustomFields { get; set; }
 
+        public bool Unsubscribed { get; set; }
+
         public class GroupDto
         {
             public Guid ID { get; set; }
