@@ -113,7 +113,7 @@ namespace Notifyre.Infrastructure.Utils
                                 jsonObj.Add(prop.Name, jsonArray);
                             }
                         }
-                        else if (prop.PropertyType.IsGenericType && prop.PropertyType == typeof(Dictionary<string, string>))
+                        else if (prop.PropertyType.IsGenericType && prop.PropertyType == typeof(Dictionary<string, string>) && prop.GetValue(parameters) != null)
                         {
                             jsonObj[prop.Name] = JObject.FromObject(prop.GetValue(parameters));
                         }
