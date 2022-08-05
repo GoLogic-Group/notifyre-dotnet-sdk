@@ -132,10 +132,10 @@ namespace NotifyreTests.Services.Sms
             result.SubmittedDateUtc.Should().Be(1630541581);
             result.CreatedDateUtc.Should().Be(1630541580);
             result.CompletedDateUtc.Should().BeNull();
-            result.Recipient.ID.Should().Be("120a5a36-937c-47c0-8f2d-74d1ea06c012");
-            result.Recipient.ToNumber.Should().Be("+61477345123");
-            result.Recipient.QueuedDateUtc.Should().Be(1630541580);
-            result.Recipient.FromNumber.Should().Be("Shared Number (+61416906716)");
+            result.Recipient[0].ID.Should().Be("120a5a36-937c-47c0-8f2d-74d1ea06c012");
+            result.Recipient[0].ToNumber.Should().Be("+61477345123");
+            result.Recipient[0].QueuedDateUtc.Should().Be(1630541580);
+            result.Recipient[0].FromNumber.Should().Be("Shared Number (+61416906716)");
         }
 
         [Fact]

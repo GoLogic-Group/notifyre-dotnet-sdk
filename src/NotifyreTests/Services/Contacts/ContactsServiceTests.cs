@@ -557,12 +557,18 @@ namespace NotifyreTests.Services.Contacts
             firstGroup.ID.Should().BeNull();
             firstGroup.Name.Should().Be("All Contacts");
             firstGroup.CreatedDateUtc.Should().BeNull();
-            firstGroup.ContactsCount.Should().Be(2);
+            firstGroup.TotalContacts.Should().Be(2);
+            firstGroup.TotalUnsubscribed.Should().Be(0);
+            firstGroup.TotalSMSContacts.Should().Be(2);
+            firstGroup.TotalFaxContacts.Should().Be(2);
 
             secondGroup.ID.Should().Be(new Guid("9735311e-f160-45d0-b05f-7a5626cb1d22"));
             secondGroup.Name.Should().Be("another");
             secondGroup.CreatedDateUtc.Should().Be(1630454407);
-            secondGroup.ContactsCount.Should().Be(2);
+            secondGroup.TotalContacts.Should().Be(2);
+            secondGroup.TotalUnsubscribed.Should().Be(0);
+            secondGroup.TotalSMSContacts.Should().Be(2);
+            secondGroup.TotalFaxContacts.Should().Be(2);
         }
 
         /* ListGroupsAsync fake response for the unit test

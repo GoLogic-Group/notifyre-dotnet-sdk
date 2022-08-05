@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Notifyre
 {
@@ -12,7 +13,7 @@ namespace Notifyre
 
         public string CreatedBy { get; set; }
 
-        public RecipientDto Recipient { get; set; }
+        public List<RecipientDto> Recipients { get; set; }
 
         public string Status { get; set; }
 
