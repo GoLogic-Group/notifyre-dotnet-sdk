@@ -18,6 +18,8 @@ namespace Notifyre
         [BodyParam]
         public bool AddUnsubscribeLink { get; set; }
         [BodyParam]
+        public string CallbackUrl { get; set; }
+        [BodyParam]
         public Dictionary<string, string> Metadata { get; set; }
 
     }
