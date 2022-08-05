@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Notifyre
 {
@@ -17,6 +18,8 @@ namespace Notifyre
         public string Status { get; set; }
 
         public long TotalCost { get; set; }
+
+        public Dictionary<string, string> Metadata { get; set; }
 
         public long? CreatedDateUtc { get; set; }
 

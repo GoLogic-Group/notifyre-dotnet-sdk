@@ -23,6 +23,8 @@ namespace Notifyre
 
             public long TotalCost { get; set; }
 
+            public Dictionary<string, string> Metadata { get; set; }
+
             public long? CreatedDateUtc { get; set; }
 
             public long? SubmittedDateUtc { get; set; }
