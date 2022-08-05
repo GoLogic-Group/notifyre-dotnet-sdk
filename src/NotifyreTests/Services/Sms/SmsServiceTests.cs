@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Xunit;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Notifyre;
-using Notifyre.Interfaces;
 using Notifyre.Infrastructure.Utils;
-using System.Threading.Tasks;
+using Notifyre.Interfaces;
 using Snapshooter.Xunit;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace NotifyreTests.Services.Sms
 {
@@ -132,10 +132,10 @@ namespace NotifyreTests.Services.Sms
             result.SubmittedDateUtc.Should().Be(1630541581);
             result.CreatedDateUtc.Should().Be(1630541580);
             result.CompletedDateUtc.Should().BeNull();
-            result.Recipient[0].ID.Should().Be("120a5a36-937c-47c0-8f2d-74d1ea06c012");
-            result.Recipient[0].ToNumber.Should().Be("+61477345123");
-            result.Recipient[0].QueuedDateUtc.Should().Be(1630541580);
-            result.Recipient[0].FromNumber.Should().Be("Shared Number (+61416906716)");
+            result.Recipients[0].ID.Should().Be("120a5a36-937c-47c0-8f2d-74d1ea06c012");
+            result.Recipients[0].ToNumber.Should().Be("+61477345123");
+            result.Recipients[0].QueuedDateUtc.Should().Be(1630541580);
+            result.Recipients[0].FromNumber.Should().Be("Shared Number (+61416906716)");
         }
 
         [Fact]
@@ -237,20 +237,41 @@ namespace NotifyreTests.Services.Sms
 
         /* ListSmsRepliesAsync example response for a unit test
             {
-                "payload": {
-                    "smsReplies": [{
-                        "recipientID": "baf0be23-f102-48dd-90f5-2183c19cf890",
-                        "recipientNumber": "\u002B61416906715",
-                        "senderNumber": "\u002B61477789874",
-                        "replyID": "a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a",
-                        "message": "Gologic reply 1",
-                        "receivedDateUtc": 1635717853
-                    }]
-                },
-                "success": true,
-                "statusCode": 200,
-                "message": "OK",
-                "errors": []
+	            "payload": {
+		            "smsReplies": [
+			            {
+				            "recipientID": "09645834-7cdf-46e1-95bf-64e2547a5de5",
+				            "recipientNumber": "+61416906715",
+				            "senderNumber": "+61477789874",
+				            "replyDetails": [
+					            {
+						            "replyID": "7cc692b0-5e78-4b59-a45d-c147b61afd95",
+						            "externalReplyID": "1a395e67-c4fa-461c-8dfa-0249cf690071",
+						            "provider": "voicehub",
+						            "receivedDateUtc": 1654053477,
+						            "createdDateUtc": 1654053479
+					            },
+					            {
+						            "replyID": "d2329dbe-a2e9-4b84-bd59-2dc7724954dd",
+						            "externalReplyID": "76dfd732-be0a-4440-bb9a-f4c34ae84c6e",
+						            "provider": "voicehub",
+						            "receivedDateUtc": 1654053670,
+						            "createdDateUtc": 1654053672
+					            }
+				            ],
+				            "createdDateUtc": 1654053479,
+				            "contactDetails": {
+					            "firstName": "Mike",
+					            "lastName": "Z",
+					            "organization": "Test GoLogic"
+				            }
+			            }
+		            ]
+	            },
+	            "success": true,
+	            "statusCode": 200,
+	            "message": "OK",
+	            "errors": []
             }
         */
         [Fact]
@@ -269,11 +290,9 @@ namespace NotifyreTests.Services.Sms
 
             // Assert
             result.SmsReplies.Count.Should().Be(1);
-            actual.RecipientID.Should().Be(new Guid("baf0be23-f102-48dd-90f5-2183c19cf890"));
+            actual.RecipientID.Should().Be(new Guid("09645834-7cdf-46e1-95bf-64e2547a5de5"));
             actual.RecipientNumber.Should().Be("+61416906715");
             actual.SenderNumber.Should().Be("+61477789874");
-            actual.Message.Should().Be("Gologic reply 1");
-            actual.ReceivedDateUtc.Should().Be(1635717853);
         }
 
         /* GetSmsReplyAsync example response for a unit test
