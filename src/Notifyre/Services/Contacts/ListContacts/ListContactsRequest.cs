@@ -27,6 +27,9 @@ namespace Notifyre
 
         [BodyParam]
         public List<Guid> GroupIDs { get; set; }
+
+        [BodyParam]
+        public bool IncludeUnsubscribed { get; set; }
     }
 
     public enum ListContactsRequestSortTypes
