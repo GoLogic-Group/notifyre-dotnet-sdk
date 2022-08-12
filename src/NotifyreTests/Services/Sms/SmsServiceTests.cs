@@ -129,12 +129,12 @@ namespace NotifyreTests.Services.Sms
             result.Status.Should().Be("queued");
             result.ID.Should().Be(messageId);
             result.AccountID.Should().Be("AZ07NWWI");
-            result.SubmittedDateUtc.Should().Be(1630541581);
-            result.CreatedDateUtc.Should().Be(1630541580);
+            result.SubmittedDateUtc.Should().Be(new DateTime(2022, 8, 3, 23, 34, 1, 404));
+            result.CreatedDateUtc.Should().Be(new DateTime(2022, 8, 3, 23, 35, 1, 404));
             result.CompletedDateUtc.Should().BeNull();
             result.Recipients[0].ID.Should().Be("120a5a36-937c-47c0-8f2d-74d1ea06c012");
             result.Recipients[0].ToNumber.Should().Be("+61477345123");
-            result.Recipients[0].QueuedDateUtc.Should().Be(1630541580);
+            result.Recipients[0].QueuedDateUtc.Should().Be(new DateTime(2022, 8, 4, 23, 35, 1, 404));
             result.Recipients[0].FromNumber.Should().Be("Shared Number (+61416906716)");
         }
 
@@ -197,7 +197,12 @@ namespace NotifyreTests.Services.Sms
                     }
                 },
                 Body = "message from a unit test",
-                ScheduledDate = new DateTime(2021, 09, 29, 14, 15, 23).ToUnixTimeStamp()
+                ScheduledDate = new DateTime(2021, 09, 29, 14, 15, 23).ToUnixTimeStamp(),
+                Metadata = new Dictionary<string, string>
+                {
+                    {"TestKey", "TestVal"},
+                    {"TestKey1", "TestVal1"}
+                }
             };
             var service = new SmsService(_HttpHandlerFake);
 

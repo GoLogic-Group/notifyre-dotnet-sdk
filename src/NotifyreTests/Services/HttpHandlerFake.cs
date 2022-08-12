@@ -49,7 +49,8 @@ namespace NotifyreTests.Services
             }
             else if (url.AbsoluteUri.Contains("/sms/send/2bdfff1a-461d-4b5c-b0bc-69af5535fc41")) // messageId
             {
-                msg = "{\"payload\":{\"id\":\"2bdfff1a-461d-4b5c-b0bc-69af5535fc41\",\"accountID\":\"AZ07NWWI\",\"createdBy\":\"9d19715d-97d3-4152-950d-cd487bfffa8f\",\"recipients\":[{\"id\":\"120a5a36-937c-47c0-8f2d-74d1ea06c012\",\"toNumber\":\"+61477345123\",\"fromNumber\":\"Shared Number (+61416906716)\",\"cost\":0.08,\"messageParts\":1,\"costPerPart\":0.08,\"status\":\"queued\",\"queuedDateUtc\":1630541580,\"completedDateUtc\":null}],\"status\":\"queued\",\"totalCost\":0,\"createdDateUtc\":1630541580,\"submittedDateUtc\":1630541581,\"completedDateUtc\":null,\"lastModifiedDateUtc\":1630541581},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"id\":\"2bdfff1a-461d-4b5c-b0bc-69af5535fc41\",\"accountID\":\"AZ07NWWI\",\"createdBy\":\"9d19715d-97d3-4152-950d-cd487bfffa8f\",\"recipients\":[{\"id\":\"120a5a36-937c-47c0-8f2d-74d1ea06c012\",\"toNumber\":\"+61477345123\",\"fromNumber\":\"Shared Number (+61416906716)\",\"cost\":0.08,\"messageParts\":1,\"costPerPart\":0.08,\"status\":\"queued\",\"queuedDateUtc\":\"2022-08-04T23:35:01.404Z\",\"completedDateUtc\":null}],\"status\":\"queued\",\"totalCost\":0,\"createdDateUtc\":\"2022-08-03T23:35:01.404Z\",\"submittedDateUtc\":\"2022-08-03T23:34:01.404Z\",\"completedDateUtc\":null,\"lastModifiedDateUtc\":\"2022-08-04T23:35:01.404Z\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+
             }
             else if (url.AbsoluteUri.Contains("fax/received/15/download")) // download fax received
             {
