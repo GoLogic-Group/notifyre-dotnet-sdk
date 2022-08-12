@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<Description>Notifyre.net is the official Notifyre .NET core library for the Notifyre API</Description>
 		<AssemblyTitle>Notifyre.net</AssemblyTitle>
-		<VersionPrefix>1.3.2</VersionPrefix>
-		<Version>1.3.2</Version>
+		<VersionPrefix>1.5.0</VersionPrefix>
+		<Version>1.5.0</Version>
 		<LangVersion>8</LangVersion>
 		<Authors>GoLogic Group</Authors>
 		<Company>GoLogic Group</Company>
