@@ -16,7 +16,7 @@ namespace Notifyre
             _sendService = sendService;
         }
 
-        public Task<List<ListReceivedFaxesResponse>> ListReceivedFaxesAsync(ListReceivedFaxesRequest request) => _receiveService.ListReceivedFaxesAsync(request);
+        public Task<ListReceivedFaxesResponse> ListReceivedFaxesAsync(ListReceivedFaxesRequest request) => _receiveService.ListReceivedFaxesAsync(request);
 
         public Task<DownloadReceivedFaxResponse> DownloadReceivedFaxAsync(DownloadReceivedFaxRequest request) => _receiveService.DownloadReceivedFaxAsync(request);
 
