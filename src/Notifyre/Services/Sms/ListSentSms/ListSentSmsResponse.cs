@@ -6,6 +6,7 @@ namespace Notifyre
     public class ListSentSmsResponse
     {
         public List<SmsMessageDto> SmsMessages { get; set; }
+        public long TotalCount { get; set; }
 
         public class SmsMessageDto
         {
