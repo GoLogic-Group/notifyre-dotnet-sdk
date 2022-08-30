@@ -129,12 +129,13 @@ namespace NotifyreTests.Services.Sms
             result.Status.Should().Be("queued");
             result.ID.Should().Be(messageId);
             result.AccountID.Should().Be("AZ07NWWI");
-            result.SubmittedDateUtc.Should().Be(new DateTime(2022, 8, 3, 23, 34, 1, 404));
-            result.CreatedDateUtc.Should().Be(new DateTime(2022, 8, 3, 23, 35, 1, 404));
+            result.SubmittedDateUtc.Should().Be(1635717738);
+            result.CreatedDateUtc.Should().Be(1635717732);
+            result.LastModifiedDateUtc.Should().Be(1635717852);
             result.CompletedDateUtc.Should().BeNull();
             result.Recipients[0].ID.Should().Be("120a5a36-937c-47c0-8f2d-74d1ea06c012");
             result.Recipients[0].ToNumber.Should().Be("+61477345123");
-            result.Recipients[0].QueuedDateUtc.Should().Be(new DateTime(2022, 8, 4, 23, 35, 1, 404));
+            result.Recipients[0].QueuedDateUtc.Should().Be(1630541580);
             result.Recipients[0].FromNumber.Should().Be("Shared Number (+61416906716)");
         }
 
