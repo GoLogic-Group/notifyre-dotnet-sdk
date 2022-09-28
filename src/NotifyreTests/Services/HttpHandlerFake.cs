@@ -58,7 +58,7 @@ namespace NotifyreTests.Services
             }
             else if (url.AbsoluteUri.Contains("/fax/received")) // list fax received
             {
-                msg = "{\"payload\":[{\"id\":\"13\",\"from\":\"+61711111111\",\"to\":\"AZ07NWWI\",\"timestamp\":1632694075,\"status\":\"completed\",\"pages\":1,\"duration\":2736},{\"id\":\"15\",\"from\":\"+61711111111\",\"to\":\"AZ07NWWI\",\"timestamp\":1632802359,\"status\":\"completed\",\"pages\":3,\"duration\":3948}],\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"faxes\":[{\"id\":\"13\",\"from\":\"+61711111111\",\"to\":\"AZ07NWWI\",\"timestamp\":1632694075,\"status\":\"completed\",\"pages\":1,\"duration\":2736},{\"id\":\"15\",\"from\":\"+61711111111\",\"to\":\"AZ07NWWI\",\"timestamp\":1632802359,\"status\":\"completed\",\"pages\":3,\"duration\":3948}],\"total\":10},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
             else if (url.AbsoluteUri.Contains("/fax/numbers"))
             {
@@ -87,7 +87,7 @@ namespace NotifyreTests.Services
             }
             else if (url.AbsoluteUri.Contains("/fax/send")) // list fax sent
             {
-                msg = "{\"payload\":{\"faxes\":[{\"id\":\"7155ef1a-c7ff-42bb-b2c8-71ccbfe31ee3\",\"recipientID\":\"9aca0071-2b61-4beb-bad2-a3ec8ce611e5\",\"fromNumber\":\"61291989589\",\"to\":\"+61711111111\",\"reference\":\"test fax\",\"createdDateUtc\":1630454410,\"queuedDateUtc\":1630454411,\"lastModifiedDateUtc\":1630454412,\"highQuality\":false,\"pages\":4,\"status\":\"completed\"},{\"id\":\"48a626f9-45cb-4dc4-8a50-f8c9c2d0caa6\",\"recipientID\":\"532324e8-9dc6-48c1-8a1f-319e6e814cee\",\"fromNumber\":\"61291989589\",\"to\":\"+61745612378\",\"reference\":\"test fax for dev app\",\"createdDateUtc\":1630454413,\"queuedDateUtc\":1630454414,\"lastModifiedDateUtc\":1630454415,\"highQuality\":false,\"pages\":4,\"status\":\"queued\"}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"faxes\":[{\"id\":\"7155ef1a-c7ff-42bb-b2c8-71ccbfe31ee3\",\"recipientID\":\"9aca0071-2b61-4beb-bad2-a3ec8ce611e5\",\"fromNumber\":\"61291989589\",\"to\":\"+61711111111\",\"reference\":\"test fax\",\"createdDateUtc\":1630454410,\"queuedDateUtc\":1630454411,\"lastModifiedDateUtc\":1630454412,\"highQuality\":false,\"pages\":4,\"status\":\"completed\"},{\"id\":\"48a626f9-45cb-4dc4-8a50-f8c9c2d0caa6\",\"recipientID\":\"532324e8-9dc6-48c1-8a1f-319e6e814cee\",\"fromNumber\":\"61291989589\",\"to\":\"+61745612378\",\"reference\":\"test fax for dev app\",\"createdDateUtc\":1630454413,\"queuedDateUtc\":1630454414,\"lastModifiedDateUtc\":1630454415,\"highQuality\":false,\"pages\":4,\"status\":\"queued\"}],\"total\":10},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
             else if (url.AbsoluteUri.Contains("addressbook/contacts/1ff6263a-23b9-4de5-bdf3-d83d99bb43c7")) // get contact
             {

@@ -20,13 +20,13 @@ namespace Notifyre.Services.Fax.FaxReceive
         {
         }
 
-        public async Task<List<ListReceivedFaxesResponse>> ListReceivedFaxesAsync(
+        public async Task<ListReceivedFaxesResponse> ListReceivedFaxesAsync(
             ListReceivedFaxesRequest request
         )
         {
             var uri = UrlUtil.CreateUrlWithQuery(request, Address);
             var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
-            return (await ReadJsonResponse<List<ListReceivedFaxesResponse>>(result).ConfigureAwait(false)).Payload;
+            return (await ReadJsonResponse<ListReceivedFaxesResponse>(result).ConfigureAwait(false)).Payload;
         }
 
         public async Task<DownloadReceivedFaxResponse> DownloadReceivedFaxAsync(

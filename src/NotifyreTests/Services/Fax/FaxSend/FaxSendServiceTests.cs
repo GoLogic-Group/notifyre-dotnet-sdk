@@ -46,7 +46,8 @@ namespace NotifyreTests.Services.Fax.FaxSend
                     "highQuality": false,
                     "pages": 4,
                     "status": "queued"
-                }]
+                }],
+                "total": 10
             },
             "success": true,
             "statusCode": 200,
@@ -94,6 +95,8 @@ namespace NotifyreTests.Services.Fax.FaxSend
             secondSentFax.HighQuality.Should().BeFalse();
             secondSentFax.Pages.Should().Be(4);
             secondSentFax.Status.Should().Be("queued");
+
+            result.Total.Should().Be(10);
         }
 
         /* DownloadSentFaxAsync example response for the unit test

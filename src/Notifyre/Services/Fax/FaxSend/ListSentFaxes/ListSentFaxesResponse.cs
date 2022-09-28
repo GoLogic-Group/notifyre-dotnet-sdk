@@ -6,6 +6,7 @@ namespace Notifyre
     public class ListSentFaxesResponse
     {
         public List<SentFax> Faxes { get; set; }
+        public int Total { get; set; }
 
         public class SentFax
         {
