@@ -14,17 +14,19 @@ namespace Notifyre
         [QueryParam]
         public ListSmsRequestSortTypes? Sort { get; set; }
         [QueryParam]
-        public int Limit { get; set; } = 20;
+        public int Limit { get; set; } = 100;
+        [QueryParam]
+        public int Skip { get; set; } = 0;
 
     }
 
     public enum ListSmsRequestStatusTypes
     {
-        Completed,
-        Draft,
+        Accepted,
+        Successful,
         Failed,
-        Warning,
-        Queued
+        Queued,
+        Cancelled
     }
 
     public enum ListSmsRequestSortTypes

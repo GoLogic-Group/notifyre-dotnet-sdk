@@ -15,7 +15,10 @@ namespace Notifyre
         public ListSmsRepliesRequestSortTypes? Sort { get; set; }
 
         [QueryParam]
-        public int Limit { get; set; } = 20;
+        public int Limit { get; set; } = 100;
+
+        [QueryParam]
+        public int Skip { get; set; } = 0;
     }
 
     public enum ListSmsRepliesRequestSortTypes
