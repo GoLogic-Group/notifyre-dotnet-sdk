@@ -25,7 +25,7 @@ namespace NotifyreTests.Services
             }
             else if (url.AbsoluteUri.Contains("/sms/received?") && url.AbsoluteUri.Contains("1632096000")) // list sms replies request
             {
-                msg = "{\"payload\":{\"smsReplies\":[{\"recipientID\":\"09645834-7cdf-46e1-95bf-64e2547a5de5\",\"recipientNumber\":\"+61416906715\",\"senderNumber\":\"+61477789874\",\"replyDetails\":[{\"replyID\":\"7cc692b0-5e78-4b59-a45d-c147b61afd95\",\"externalReplyID\":\"1a395e67-c4fa-461c-8dfa-0249cf690071\",\"provider\":\"voicehub\",\"receivedDateUtc\":1654053477,\"createdDateUtc\":1654053479},{\"replyID\":\"d2329dbe-a2e9-4b84-bd59-2dc7724954dd\",\"externalReplyID\":\"76dfd732-be0a-4440-bb9a-f4c34ae84c6e\",\"provider\":\"voicehub\",\"receivedDateUtc\":1654053670,\"createdDateUtc\":1654053672}],\"createdDateUtc\":1654053479,\"contactDetails\":{\"firstName\":\"Go\",\"lastName\":\"logic\",\"organization\":\"Test GoLogic\"}}],\"total\": 5},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"smsReplies\":[{\"recipientID\":\"09645834-7cdf-46e1-95bf-64e2547a5de5\",\"recipientNumber\":\"+61416906715\",\"senderNumber\":\"+61477789874\",\"replyID\":\"7cc692b0-5e78-4b59-a45d-c147b61afd95\",\"receivedDateUtc\":1654053477,\"contactDetails\":{\"firstName\":\"Go\",\"lastName\":\"logic\",\"organization\":\"Test GoLogic\"}}],\"total\":5},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
             else if (url.AbsoluteUri.Contains("/sms/send?statustype=")) // list sms request
             {
