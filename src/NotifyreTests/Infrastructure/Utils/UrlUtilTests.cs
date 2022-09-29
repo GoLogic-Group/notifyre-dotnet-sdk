@@ -9,15 +9,16 @@ namespace NotifyreTests.Infrastructure.Utils
     public class UrlUtilTests
     {
         [Theory]
-        [InlineData(null, "2021-09-01", "2021-09-02", ListSentFaxesRequestSortTypes.Asc, 10, "statustype=&fromdate=1630454400&todate=1630540800&sort=asc&limit=10")]
-        [InlineData(null, null, null, null, null, "statustype=&fromdate=*&todate=*&sort=&limit=20")]
-        [InlineData(ListSentFaxesRequestStatusTypes.Queued, null, null, ListSentFaxesRequestSortTypes.Desc, null, "statustype=queued&fromdate=*&todate=*&sort=desc&limit=20")]
+        [InlineData(null, "2021-09-01", "2021-09-02", ListSentFaxesRequestSortTypes.Asc, 10,1, "statustype=&fromdate=1630454400&todate=1630540800&sort=asc&limit=10&skip=1")]
+        [InlineData(null, null, null, null, null,null, "statustype=&fromdate=*&todate=*&sort=&limit=20&skip=0")]
+        [InlineData(ListSentFaxesRequestStatusTypes.Queued, null, null, ListSentFaxesRequestSortTypes.Desc, null,null, "statustype=queued&fromdate=*&todate=*&sort=desc&limit=20&skip=0")]
         public void SerializeQuery_TestTheory(
             ListSentFaxesRequestStatusTypes? statusType,
             string fromDate,
             string toDate,
             ListSentFaxesRequestSortTypes? sort,
             int? limit,
+            int? skip,
             string result
         )
         {
@@ -26,6 +27,7 @@ namespace NotifyreTests.Infrastructure.Utils
             {
                 StatusType = statusType,
                 Sort = sort,
+                Skip = skip.GetValueOrDefault()
             };
             if (!string.IsNullOrEmpty(fromDate)) request.FromDate = DateTime.Parse(fromDate).ToUnixTimeStamp();
             if (!string.IsNullOrEmpty(toDate)) request.ToDate = DateTime.Parse(toDate).ToUnixTimeStamp();

@@ -20,7 +20,9 @@ namespace NotifyreTests.Services.Fax.FaxReceive
 
         /* ListReceivedFaxesAsync example response for the unit test
         {
-            "payload": [{
+          "payload": {
+            "faxes": [
+              {
                 "id": "13",
                 "from": "\u002B61711111111",
                 "to": "AZ07NWWI",
@@ -28,7 +30,8 @@ namespace NotifyreTests.Services.Fax.FaxReceive
                 "status": "completed",
                 "pages": 1,
                 "duration": 2736
-            }, {
+              },
+              {
                 "id": "15",
                 "from": "\u002B61711111111",
                 "to": "AZ07NWWI",
@@ -36,11 +39,14 @@ namespace NotifyreTests.Services.Fax.FaxReceive
                 "status": "completed",
                 "pages": 3,
                 "duration": 3948
-            }],
-            "success": true,
-            "statusCode": 200,
-            "message": "OK",
-            "errors": []
+              }
+            ],
+            "total": 10
+          },
+          "success": true,
+          "statusCode": 200,
+          "message": "OK",
+          "errors": []
         }
         */
         [Fact]
@@ -52,8 +58,8 @@ namespace NotifyreTests.Services.Fax.FaxReceive
 
             // Act 
             var result = await service.ListReceivedFaxesAsync(request);
-            var firstReceivedFax = result[0];
-            var secondtReceivedFax = result[1];
+            var firstReceivedFax = result.Faxes[0];
+            var secondReceivedFax = result.Faxes[1];
 
             // Assert
             firstReceivedFax.ID.Should().Be("13"); // see above example response
@@ -64,13 +70,15 @@ namespace NotifyreTests.Services.Fax.FaxReceive
             firstReceivedFax.Pages.Should().Be(1);
             firstReceivedFax.Duration.Should().Be(2736);
 
-            secondtReceivedFax.ID.Should().Be("15");
-            secondtReceivedFax.From.Should().Be("+61711111111");
-            secondtReceivedFax.To.Should().Be("AZ07NWWI");
-            secondtReceivedFax.Timestamp.Should().Be(1632802359);
-            secondtReceivedFax.Status.Should().Be("completed");
-            secondtReceivedFax.Pages.Should().Be(3);
-            secondtReceivedFax.Duration.Should().Be(3948);
+            secondReceivedFax.ID.Should().Be("15");
+            secondReceivedFax.From.Should().Be("+61711111111");
+            secondReceivedFax.To.Should().Be("AZ07NWWI");
+            secondReceivedFax.Timestamp.Should().Be(1632802359);
+            secondReceivedFax.Status.Should().Be("completed");
+            secondReceivedFax.Pages.Should().Be(3);
+            secondReceivedFax.Duration.Should().Be(3948);
+
+            result.Total.Should().Be(10);
         }
 
         /* DownloadReceivedFaxAsync example response for the unit test

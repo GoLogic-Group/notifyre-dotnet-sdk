@@ -21,13 +21,13 @@ namespace Notifyre
 
         public Dictionary<string, string> Metadata { get; set; }
 
-        public DateTime? CreatedDateUtc { get; set; }
+        public long? CreatedDateUtc { get; set; }
 
-        public DateTime? SubmittedDateUtc { get; set; }
+        public long? SubmittedDateUtc { get; set; }
 
-        public DateTime? CompletedDateUtc { get; set; }
+        public long? CompletedDateUtc { get; set; }
 
-        public DateTime? LastModifiedDateUtc { get; set; }
+        public long? LastModifiedDateUtc { get; set; }
 
         public class RecipientDto
         {
@@ -47,9 +47,9 @@ namespace Notifyre
 
             public string Status { get; set; }
             public string StatusMessage { get; set; }
-            public DateTime? QueuedDateUtc { get; set; }
+            public long? QueuedDateUtc { get; set; }
 
-            public DateTime? CompletedDateUtc { get; set; }
+            public long? CompletedDateUtc { get; set; }
         }
     }
 }

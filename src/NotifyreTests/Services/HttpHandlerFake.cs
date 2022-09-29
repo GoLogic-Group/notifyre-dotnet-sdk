@@ -19,17 +19,17 @@ namespace NotifyreTests.Services
         {
             string msg;
             HttpStatusCode? code = null;
-            if (url.AbsoluteUri.Contains("/sms/received?fromdate=&todate=&sort=desc&limit=20"))
+            if (url.AbsoluteUri.Contains("/sms/received?fromdate=&todate=&sort=desc&limit=100&skip=0"))
             {
                 msg = @"<?xml version=""1.0"" ?><GetCapabilities service=""WFS"" version=""1.0.0"" xmlns=""http://www.opengis.net/wfs"" />";
             }
             else if (url.AbsoluteUri.Contains("/sms/received?") && url.AbsoluteUri.Contains("1632096000")) // list sms replies request
             {
-                msg = "{\"payload\":{\"smsReplies\":[{\"recipientID\":\"09645834-7cdf-46e1-95bf-64e2547a5de5\",\"recipientNumber\":\"+61416906715\",\"senderNumber\":\"+61477789874\",\"replyDetails\":[{\"replyID\":\"7cc692b0-5e78-4b59-a45d-c147b61afd95\",\"externalReplyID\":\"1a395e67-c4fa-461c-8dfa-0249cf690071\",\"provider\":\"voicehub\",\"receivedDateUtc\":1654053477,\"createdDateUtc\":1654053479},{\"replyID\":\"d2329dbe-a2e9-4b84-bd59-2dc7724954dd\",\"externalReplyID\":\"76dfd732-be0a-4440-bb9a-f4c34ae84c6e\",\"provider\":\"voicehub\",\"receivedDateUtc\":1654053670,\"createdDateUtc\":1654053672}],\"createdDateUtc\":1654053479,\"contactDetails\":{\"firstName\":\"Go\",\"lastName\":\"logic\",\"organization\":\"Test GoLogic\"}}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"smsReplies\":[{\"recipientID\":\"09645834-7cdf-46e1-95bf-64e2547a5de5\",\"recipientNumber\":\"+61416906715\",\"senderNumber\":\"+61477789874\",\"replyID\":\"7cc692b0-5e78-4b59-a45d-c147b61afd95\",\"receivedDateUtc\":1654053477,\"contactDetails\":{\"firstName\":\"Go\",\"lastName\":\"logic\",\"organization\":\"Test GoLogic\"}}],\"total\":5},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
             else if (url.AbsoluteUri.Contains("/sms/send?statustype=")) // list sms request
             {
-                msg = "{\"payload\":{\"smsMessages\":[{\"id\":\"2bdfff1a-461d-4b5c-b0bc-69af5535fc41\",\"accountID\":\"AZ07NWWI\",\"createdBy\":\"9d19715d-97d3-4152-950d-cd487bfffa8f\",\"recipient\":{\"id\":\"120a5a36-937c-47c0-8f2d-74d1ea06c012\",\"toNumber\":\"+61477345123\",\"fromNumber\":\"Shared Number (+61416906716)\",\"cost\":0.08,\"messageParts\":1,\"costPerPart\":0.08,\"status\":\"queued\",\"queuedDateUtc\":1635717825,\"completedDateUtc\":null},\"status\":\"queued\",\"totalCost\":0,\"createdDateUtc\":1635717732,\"submittedDateUtc\":1635717738,\"completedDateUtc\":null,\"lastModifiedDateUtc\":1635717852}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"smsMessages\":[{\"id\":\"2bdfff1a-461d-4b5c-b0bc-69af5535fc41\",\"accountID\":\"AZ07NWWI\",\"createdBy\":\"9d19715d-97d3-4152-950d-cd487bfffa8f\",\"recipient\":{\"id\":\"120a5a36-937c-47c0-8f2d-74d1ea06c012\",\"toNumber\":\"+61477345123\",\"fromNumber\":\"Shared Number (+61416906716)\",\"cost\":0.08,\"messageParts\":1,\"costPerPart\":0.08,\"status\":\"queued\",\"queuedDateUtc\":1635717825,\"completedDateUtc\":null},\"status\":\"queued\",\"totalCost\":0,\"createdDateUtc\":1635717732,\"submittedDateUtc\":1635717738,\"completedDateUtc\":null,\"lastModifiedDateUtc\":1635717852}],\"total\": 207},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
             else if (url.AbsoluteUri.Contains("/sms/received/a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a")) // get sms reply
             {
@@ -49,7 +49,7 @@ namespace NotifyreTests.Services
             }
             else if (url.AbsoluteUri.Contains("/sms/send/2bdfff1a-461d-4b5c-b0bc-69af5535fc41")) // messageId
             {
-                msg = "{\"payload\":{\"id\":\"2bdfff1a-461d-4b5c-b0bc-69af5535fc41\",\"accountID\":\"AZ07NWWI\",\"createdBy\":\"9d19715d-97d3-4152-950d-cd487bfffa8f\",\"recipients\":[{\"id\":\"120a5a36-937c-47c0-8f2d-74d1ea06c012\",\"toNumber\":\"+61477345123\",\"fromNumber\":\"Shared Number (+61416906716)\",\"cost\":0.08,\"messageParts\":1,\"costPerPart\":0.08,\"status\":\"queued\",\"queuedDateUtc\":\"2022-08-04T23:35:01.404Z\",\"completedDateUtc\":null}],\"status\":\"queued\",\"totalCost\":0,\"createdDateUtc\":\"2022-08-03T23:35:01.404Z\",\"submittedDateUtc\":\"2022-08-03T23:34:01.404Z\",\"completedDateUtc\":null,\"lastModifiedDateUtc\":\"2022-08-04T23:35:01.404Z\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"id\":\"2bdfff1a-461d-4b5c-b0bc-69af5535fc41\",\"accountID\":\"AZ07NWWI\",\"createdBy\":\"9d19715d-97d3-4152-950d-cd487bfffa8f\",\"recipients\":[{\"id\":\"120a5a36-937c-47c0-8f2d-74d1ea06c012\",\"toNumber\":\"+61477345123\",\"fromNumber\":\"Shared Number (+61416906716)\",\"cost\":0.08,\"messageParts\":1,\"costPerPart\":0.08,\"status\":\"queued\",\"queuedDateUtc\":\"1630541580\",\"completedDateUtc\":null}],\"status\":\"queued\",\"totalCost\":0,\"createdDateUtc\":\"1635717732\",\"submittedDateUtc\":\"1635717738\",\"completedDateUtc\":null,\"lastModifiedDateUtc\":\"1635717852\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
 
             }
             else if (url.AbsoluteUri.Contains("fax/received/15/download")) // download fax received
@@ -58,7 +58,7 @@ namespace NotifyreTests.Services
             }
             else if (url.AbsoluteUri.Contains("/fax/received")) // list fax received
             {
-                msg = "{\"payload\":[{\"id\":\"13\",\"from\":\"+61711111111\",\"to\":\"AZ07NWWI\",\"timestamp\":1632694075,\"status\":\"completed\",\"pages\":1,\"duration\":2736},{\"id\":\"15\",\"from\":\"+61711111111\",\"to\":\"AZ07NWWI\",\"timestamp\":1632802359,\"status\":\"completed\",\"pages\":3,\"duration\":3948}],\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"faxes\":[{\"id\":\"13\",\"from\":\"+61711111111\",\"to\":\"AZ07NWWI\",\"timestamp\":1632694075,\"status\":\"completed\",\"pages\":1,\"duration\":2736},{\"id\":\"15\",\"from\":\"+61711111111\",\"to\":\"AZ07NWWI\",\"timestamp\":1632802359,\"status\":\"completed\",\"pages\":3,\"duration\":3948}],\"total\":10},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
             else if (url.AbsoluteUri.Contains("/fax/numbers"))
             {
@@ -87,7 +87,7 @@ namespace NotifyreTests.Services
             }
             else if (url.AbsoluteUri.Contains("/fax/send")) // list fax sent
             {
-                msg = "{\"payload\":{\"faxes\":[{\"id\":\"7155ef1a-c7ff-42bb-b2c8-71ccbfe31ee3\",\"recipientID\":\"9aca0071-2b61-4beb-bad2-a3ec8ce611e5\",\"fromNumber\":\"61291989589\",\"to\":\"+61711111111\",\"reference\":\"test fax\",\"createdDateUtc\":1630454410,\"queuedDateUtc\":1630454411,\"lastModifiedDateUtc\":1630454412,\"highQuality\":false,\"pages\":4,\"status\":\"completed\"},{\"id\":\"48a626f9-45cb-4dc4-8a50-f8c9c2d0caa6\",\"recipientID\":\"532324e8-9dc6-48c1-8a1f-319e6e814cee\",\"fromNumber\":\"61291989589\",\"to\":\"+61745612378\",\"reference\":\"test fax for dev app\",\"createdDateUtc\":1630454413,\"queuedDateUtc\":1630454414,\"lastModifiedDateUtc\":1630454415,\"highQuality\":false,\"pages\":4,\"status\":\"queued\"}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"faxes\":[{\"id\":\"7155ef1a-c7ff-42bb-b2c8-71ccbfe31ee3\",\"recipientID\":\"9aca0071-2b61-4beb-bad2-a3ec8ce611e5\",\"fromNumber\":\"61291989589\",\"to\":\"+61711111111\",\"reference\":\"test fax\",\"createdDateUtc\":1630454410,\"queuedDateUtc\":1630454411,\"lastModifiedDateUtc\":1630454412,\"highQuality\":false,\"pages\":4,\"status\":\"completed\"},{\"id\":\"48a626f9-45cb-4dc4-8a50-f8c9c2d0caa6\",\"recipientID\":\"532324e8-9dc6-48c1-8a1f-319e6e814cee\",\"fromNumber\":\"61291989589\",\"to\":\"+61745612378\",\"reference\":\"test fax for dev app\",\"createdDateUtc\":1630454413,\"queuedDateUtc\":1630454414,\"lastModifiedDateUtc\":1630454415,\"highQuality\":false,\"pages\":4,\"status\":\"queued\"}],\"total\":10},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
             else if (url.AbsoluteUri.Contains("addressbook/contacts/1ff6263a-23b9-4de5-bdf3-d83d99bb43c7")) // get contact
             {

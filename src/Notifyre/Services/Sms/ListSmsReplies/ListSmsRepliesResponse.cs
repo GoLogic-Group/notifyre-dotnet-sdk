@@ -6,6 +6,7 @@ namespace Notifyre
     public class ListSmsRepliesResponse
     {
         public List<SmsReplyDto> SmsReplies { get; set; }
+        public long Total { get; set; }
 
         public class SmsReplyDto
         {
@@ -15,9 +16,9 @@ namespace Notifyre
 
             public string SenderNumber { get; set; }
 
-            public List<SmsReplyDetailDto> ReplyDetails { get; set; }
+            public string ReplyID { get; set; }
 
-            public long CreatedDateUtc { get; set; }
+            public long ReceivedDateUtc { get; set; }
 
             public ContactDetailsDto ContactDetails { get; set; }
 
@@ -31,19 +32,6 @@ namespace Notifyre
 
             public string Organization { get; set; }
 
-        }
-
-        public class SmsReplyDetailDto
-        {
-            public string ReplyID { get; set; }
-
-            public string ExternalReplyID { get; set; }
-
-            public string Provider { get; set; }
-
-            public long ReceivedDateUtc { get; set; }
-
-            public long? CreatedDateUtc { get; set; }
         }
     }
 }

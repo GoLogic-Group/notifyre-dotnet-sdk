@@ -16,6 +16,8 @@ namespace Notifyre
         public ListSentFaxesRequestSortTypes? Sort { get; set; }
         [QueryParam]
         public int Limit { get; set; } = 20;
+        [QueryParam]
+        public int Skip { get; set; } = 0;
 
     }
 
