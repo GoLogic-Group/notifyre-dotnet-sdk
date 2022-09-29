@@ -14,8 +14,6 @@ namespace Notifyre
         [BodyParam]
         public long? ScheduledDate { get; set; }
         [BodyParam]
-        public bool OptOutMessage { get; set; }
-        [BodyParam]
         public bool AddUnsubscribeLink { get; set; }
         [BodyParam]
         public string CallbackUrl { get; set; }

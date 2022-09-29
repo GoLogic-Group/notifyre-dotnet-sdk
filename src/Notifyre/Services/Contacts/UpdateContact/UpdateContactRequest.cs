@@ -27,6 +27,8 @@ namespace Notifyre
         [BodyParam]
         public string MobileNumber { get; set; }
 
+        public bool Unsubscribed { get; set; }
+
         [BodyParam]
         public List<CustomField> CustomFields { get; set; } = new List<CustomField>();
     }
