@@ -29,10 +29,10 @@ namespace Notifyre
 
     public enum ListSentFaxesRequestStatusTypes
     {
-        Completed,
-        Draft,
+        Accepted,
+        Successful,
+        Queued,
         Failed,
-        Warning,
-        Queued
+        InProgress
     }
 }

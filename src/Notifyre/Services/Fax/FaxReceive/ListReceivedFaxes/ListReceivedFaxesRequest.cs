@@ -8,10 +8,10 @@ namespace Notifyre
         public string ToNumber { get; set; }
 
         [QueryParam]
-        public int? Limit { get; set; }
+        public int Limit { get; set; }
 
         [QueryParam]
-        public int? Skip { get; set; }
+        public int Skip { get; set; }
 
     }
 }

@@ -22,11 +22,10 @@ namespace Notifyre
 
     public enum ListSmsRequestStatusTypes
     {
-        Accepted,
-        Successful,
-        Failed,
-        Queued,
-        Cancelled
+        Submitted,
+        Processing,
+        Sent,
+        Failed
     }
 
     public enum ListSmsRequestSortTypes
