@@ -33,6 +33,6 @@ namespace Notifyre
         Successful,
         Queued,
         Failed,
-        InProgress
+        In_Progress
     }
 }
