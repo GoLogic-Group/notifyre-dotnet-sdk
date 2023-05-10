@@ -66,17 +66,17 @@ namespace NotifyreTests.Services.Sms
             // Assert
             actualSms.AccountID.Should().Be("AZ07NWWI"); // see above example response
             actualSms.CreatedBy.Should().Be("9d19715d-97d3-4152-950d-cd487bfffa8f");
-            actualSms.CreatedDateUtc.Should().Be(1635717732);
+            actualSms.CreatedDateUtc.Should().Be(1676932998);
             actualSms.SubmittedDateUtc.Should().Be(1635717738);
-            actualSms.CompletedDateUtc.Should().BeNull();
-            actualSms.LastModifiedDateUtc.Should().Be(1635717852);
-            actualSms.Recipient.QueuedDateUtc.Should().Be(1635717825);
+            actualSms.CompletedDateUtc.Should().Be(1676933415);
+            actualSms.LastModifiedDateUtc.Should().Be(1676933415);
+            actualSms.Recipient.QueuedDateUtc.Should().Be(1676933000);
             actualSms.Recipient.ID.Should().Be(new Guid("120a5a36-937c-47c0-8f2d-74d1ea06c012"));
             actualSms.Recipient.ToNumber.Should().Be("+61477345123");
             actualSms.Recipient.Cost.Should().Be(0.08m);
             actualSms.Recipient.MessageParts.Should().Be(1);
-            actualSms.Recipient.Status.Should().Be("queued");
-            actualSms.Recipient.CompletedDateUtc.Should().BeNull();
+            actualSms.Recipient.Status.Should().Be("sent");
+            actualSms.Recipient.CompletedDateUtc.Should().Be(1676933412);
             actualSms.Recipient.FromNumber.Should().Be("Shared Number (+61416906716)");
         }
 
@@ -126,16 +126,16 @@ namespace NotifyreTests.Services.Sms
             var result = await service.GetSentSmsAsync(request);
 
             // Assert
-            result.Status.Should().Be("queued");
+            result.Status.Should().Be("completed");
             result.ID.Should().Be(messageId);
             result.AccountID.Should().Be("AZ07NWWI");
-            result.SubmittedDateUtc.Should().Be(1635717738);
-            result.CreatedDateUtc.Should().Be(1635717732);
-            result.LastModifiedDateUtc.Should().Be(1635717852);
-            result.CompletedDateUtc.Should().BeNull();
+            result.SubmittedDateUtc.Should().BeNull();
+            result.CreatedDateUtc.Should().Be(1676932998);
+            result.LastModifiedDateUtc.Should().Be(1676933415);
+            result.CompletedDateUtc.Should().Be(1676933415);
             result.Recipients[0].ID.Should().Be("120a5a36-937c-47c0-8f2d-74d1ea06c012");
             result.Recipients[0].ToNumber.Should().Be("+61477345123");
-            result.Recipients[0].QueuedDateUtc.Should().Be(1630541580);
+            result.Recipients[0].QueuedDateUtc.Should().Be(1676933000);
             result.Recipients[0].FromNumber.Should().Be("Shared Number (+61416906716)");
         }
 
@@ -156,15 +156,16 @@ namespace NotifyreTests.Services.Sms
             var result = await service.GetSentSmsRecipientAsync(request);
 
             // Assert
-            result.Status.Should().Be("queued");
+            result.Status.Should().Be("completed");
+            result.Recipient.Status.Should().Be("sent");
             result.ID.Should().Be(messageId);
             result.AccountID.Should().Be("AZ07NWWI");
-            result.SubmittedDateUtc.Should().Be(1630541581);
-            result.CreatedDateUtc.Should().Be(1630541580);
-            result.CompletedDateUtc.Should().BeNull();
+            result.SubmittedDateUtc.Should().BeNull();
+            result.CreatedDateUtc.Should().Be(1676932998);
+            result.CompletedDateUtc.Should().Be(1676933415);
             result.Recipient.ID.Should().Be(recipientID);
             result.Recipient.ToNumber.Should().Be("+61477345123");
-            result.Recipient.QueuedDateUtc.Should().Be(1630541580);
+            result.Recipient.QueuedDateUtc.Should().Be(1676933000);
             result.Recipient.Message.Should().Be("test message");
             result.Recipient.FromNumber.Should().Be("Shared Number (+61416906716)");
         }

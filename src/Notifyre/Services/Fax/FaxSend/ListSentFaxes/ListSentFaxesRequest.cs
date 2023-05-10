@@ -13,6 +13,8 @@ namespace Notifyre
         [QueryParam]
         public long ToDate { get; set; } = DateTime.UtcNow.ToUnixTimeStamp();
         [QueryParam]
+        public string Search { get; set; }
+        [QueryParam]
         public ListSentFaxesRequestSortTypes? Sort { get; set; }
         [QueryParam]
         public int Limit { get; set; } = 20;

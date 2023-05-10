@@ -32,6 +32,7 @@ namespace Notifyre
         public class RecipientDto
         {
             public Guid ID { get; set; }
+            public string FriendlyID { get; set; }
 
             public string ToNumber { get; set; }
 
