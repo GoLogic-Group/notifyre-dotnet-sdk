@@ -26,39 +26,99 @@ namespace NotifyreTests.Services
             else if (url.AbsoluteUri.Contains("/sms/received?") && url.AbsoluteUri.Contains("1632096000")) // list sms replies request
             {
                 msg = @"
-                        {
-                            ""payload"": {
-                                ""smsReplies"": [
-                                    {
-                                        ""recipientID"": ""09645834-7cdf-46e1-95bf-64e2547a5de5"",
-                                        ""friendlyID"": ""MLJOJOF4UHG0"",
-                                        ""recipientNumber"": ""+61416906715"",
-                                        ""senderNumber"": ""+61477789874"",
-                                        ""replyID"": ""067f11c0-38a5-402e-b060-8863ed263555"",
-                                        ""receivedDateUtc"": 1654053477,
-                                        ""contactDetails"": {
-                                            ""firstName"": ""Go"",
-                                            ""lastName"": ""logic"",
-                                            ""organization"": ""Test GoLogic""
-                                        }
+                    {
+                        ""payload"": {
+                            ""smsReplies"": [
+                                {
+                                    ""recipientID"": ""09645834-7cdf-46e1-95bf-64e2547a5de5"",
+                                    ""friendlyID"": ""MLJOJOF4UHG0"",
+                                    ""recipientNumber"": ""+61416906715"",
+                                    ""senderNumber"": ""+61477789874"",
+                                    ""replyID"": ""067f11c0-38a5-402e-b060-8863ed263555"",
+                                    ""receivedDateUtc"": 1654053477,
+                                    ""contactDetails"": {
+                                        ""firstName"": ""Go"",
+                                        ""lastName"": ""logic"",
+                                        ""organization"": ""Test GoLogic""
                                     }
-                                ],
-                                ""total"": 2
-                            },
-                            ""success"": true,
-                            ""statusCode"": 200,
-                            ""message"": ""OK"",
-                            ""errors"": []
-                        }
-                        ";
+                                }
+                            ],
+                            ""total"": 2
+                        },
+                        ""success"": true,
+                        ""statusCode"": 200,
+                        ""message"": ""OK"",
+                        ""errors"": []
+                    }
+                    ";
             }
             else if (url.AbsoluteUri.Contains("/sms/send?statustype=")) // list sms request
             {
-                msg = "{\"payload\":{\"smsMessages\":[{\"id\":\"2bdfff1a-461d-4b5c-b0bc-69af5535fc41\",\"accountID\":\"AZ07NWWI\",\"createdBy\":\"9d19715d-97d3-4152-950d-cd487bfffa8f\",\"recipient\":{\"id\":\"120a5a36-937c-47c0-8f2d-74d1ea06c012\",\"toNumber\":\"+61477345123\",\"fromNumber\":\"Shared Number (+61416906716)\",\"cost\":0.08,\"messageParts\":1,\"costPerPart\":0.08,\"status\":\"queued\",\"queuedDateUtc\":1635717825,\"completedDateUtc\":null},\"status\":\"queued\",\"totalCost\":0,\"createdDateUtc\":1635717732,\"submittedDateUtc\":1635717738,\"completedDateUtc\":null,\"lastModifiedDateUtc\":1635717852}],\"total\": 207},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = @"
+                    {
+                        ""payload"": {
+                            ""smsMessages"": [
+                                {
+                                    ""id"": ""2bdfff1a-461d-4b5c-b0bc-69af5535fc41"",
+                                    ""friendlyID"": ""41S7FTJDSF75"",
+                                    ""accountID"": ""AZ07NWWI"",
+                                    ""createdBy"": ""9d19715d-97d3-4152-950d-cd487bfffa8f"",
+                                    ""recipient"": {
+                                        ""id"": ""120a5a36-937c-47c0-8f2d-74d1ea06c012"",
+                                        ""friendlyID"": ""TS7SLP7F1PF5"",
+                                        ""toNumber"": ""+61477345123"",
+                                        ""fromNumber"": ""Shared Number (+61416906716)"",
+                                        ""cost"": 0.08,
+                                        ""messageParts"": 1,
+                                        ""costPerPart"": 0.08,
+                                        ""status"": ""sent"",
+                                        ""statusMessage"": ""sent"",
+                                        ""deliveryStatus"": ""delivered"",
+                                        ""queuedDateUtc"": 1676933000,
+                                        ""completedDateUtc"": 1676933412
+                                    },
+                                    ""status"": ""completed"",
+                                    ""totalCost"": 0,
+                                    ""metadata"": null,
+                                    ""createdDateUtc"": 1676932998,
+                                    ""submittedDateUtc"": 1635717738,
+                                    ""completedDateUtc"": 1676933415,
+                                    ""lastModifiedDateUtc"": 1676933415
+                                }
+                            ],
+                            ""total"": 6
+                        },
+                        ""success"": true,
+                        ""statusCode"": 200,
+                        ""message"": ""OK"",
+                        ""errors"": []
+                    }
+                    ";
             }
             else if (url.AbsoluteUri.Contains("/sms/received/a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a")) // get sms reply
             {
-                msg = "{\"payload\":{\"recipientID\":\"baf0be23-f102-48dd-90f5-2183c19cf890\",\"recipientNumber\":\"+61416906715\",\"senderNumber\":\"+61477789879\",\"replyID\":\"a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a\",\"message\":\"Gologic reply 1\",\"receivedDateUtc\":1635717854},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = @"
+                    {
+                        ""payload"": {
+                            ""recipientID"": ""baf0be23-f102-48dd-90f5-2183c19cf890"",
+                            ""friendlyID"": ""MLJOJOF4UHG0"",
+                            ""recipientNumber"": ""+61416906715"",
+                            ""senderNumber"": ""+61477789879"",
+                            ""replyID"": ""a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a"",
+                            ""message"": ""Gologic reply 1"",
+                            ""receivedDateUtc"": 1635717854,
+                            ""contactDetails"": {
+                                        ""firstName"": ""Go"",
+                                        ""lastName"": ""logic"",
+                                        ""organization"": ""Test GoLogic""
+                                    }
+                        },
+                        ""success"": true,
+                        ""statusCode"": 200,
+                        ""message"": ""OK"",
+                        ""errors"": []
+                    }
+                    ";
             }
             else if (url.AbsoluteUri.Contains("/sms/numbers")) // list sms numbers
             {
@@ -70,12 +130,81 @@ namespace NotifyreTests.Services
               && url.AbsoluteUri.Contains("2bdfff1a-461d-4b5c-b0bc-69af5535fc41") // messageId
             )
             {
-                msg = "{\"payload\":{\"id\":\"2bdfff1a-461d-4b5c-b0bc-69af5535fc41\",\"accountID\":\"AZ07NWWI\",\"createdBy\":\"9d19715d-97d3-4152-950d-cd487bfffa8f\",\"recipient\":{\"id\":\"120a5a36-937c-47c0-8f2d-74d1ea06c012\",\"toNumber\":\"+61477345123\",\"fromNumber\":\"Shared Number (+61416906716)\",\"message\":\"test message\",\"cost\":0.08,\"messageParts\":1,\"costPerPart\":0.08,\"status\":\"queued\",\"queuedDateUtc\":1630541580,\"completedDateUtc\":null},\"status\":\"queued\",\"totalCost\":0,\"createdDateUtc\":1630541580,\"submittedDateUtc\":1630541581,\"completedDateUtc\":null,\"lastModifiedDateUtc\":1630541581},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = @"
+                    {
+                        ""payload"": {
+                            ""id"": ""2bdfff1a-461d-4b5c-b0bc-69af5535fc41"",
+                            ""friendlyID"": ""41S7FTJDSF75"",
+                            ""accountID"": ""AZ07NWWI"",
+                            ""createdBy"": ""9d19715d-97d3-4152-950d-cd487bfffa8f"",
+                            ""recipient"": {
+                                ""id"": ""120a5a36-937c-47c0-8f2d-74d1ea06c012"",
+                                ""friendlyID"": ""TS7SLP7F1PF5"",
+                                ""toNumber"": ""+61477345123"",
+                                ""fromNumber"": ""Shared Number (+61416906716)"",
+                                ""message"": ""test message"",
+                                ""cost"": 0.08,
+                                ""messageParts"": 1,
+                                ""costPerPart"": 0.08,
+                                ""status"": ""sent"",
+                                ""statusMessage"": ""sent"",
+                                ""queuedDateUtc"": 1676933000,
+                                ""completedDateUtc"": 1676933412
+                            },
+                            ""status"": ""completed"",
+                            ""totalCost"": 0,
+                            ""metadata"": null,
+                            ""createdDateUtc"": 1676932998,
+                            ""submittedDateUtc"": null,
+                            ""completedDateUtc"": 1676933415,
+                            ""lastModifiedDateUtc"": 1676933415
+                        },
+                        ""success"": true,
+                        ""statusCode"": 200,
+                        ""message"": ""OK"",
+                        ""errors"": []
+                    }
+                    ";
             }
             else if (url.AbsoluteUri.Contains("/sms/send/2bdfff1a-461d-4b5c-b0bc-69af5535fc41")) // messageId
             {
-                msg = "{\"payload\":{\"id\":\"2bdfff1a-461d-4b5c-b0bc-69af5535fc41\",\"accountID\":\"AZ07NWWI\",\"createdBy\":\"9d19715d-97d3-4152-950d-cd487bfffa8f\",\"recipients\":[{\"id\":\"120a5a36-937c-47c0-8f2d-74d1ea06c012\",\"toNumber\":\"+61477345123\",\"fromNumber\":\"Shared Number (+61416906716)\",\"cost\":0.08,\"messageParts\":1,\"costPerPart\":0.08,\"status\":\"queued\",\"queuedDateUtc\":\"1630541580\",\"completedDateUtc\":null}],\"status\":\"queued\",\"totalCost\":0,\"createdDateUtc\":\"1635717732\",\"submittedDateUtc\":\"1635717738\",\"completedDateUtc\":null,\"lastModifiedDateUtc\":\"1635717852\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
-
+                msg = @"
+                    {
+                        ""payload"": {
+                            ""id"": ""2bdfff1a-461d-4b5c-b0bc-69af5535fc41"",
+                            ""friendlyID"": ""41S7FTJDSF75"",
+                            ""accountID"": ""AZ07NWWI"",
+                            ""createdBy"": ""9d19715d-97d3-4152-950d-cd487bfffa8f"",
+                            ""recipients"": [
+                                {
+                                    ""id"": ""120a5a36-937c-47c0-8f2d-74d1ea06c012"",
+                                    ""friendlyID"": ""TS7SLP7F1PF5"",
+                                    ""toNumber"": ""+61477345123"",
+                                    ""fromNumber"": ""Shared Number (+61416906716)"",
+                                    ""cost"": 0.08,
+                                    ""messageParts"": 1,
+                                    ""costPerPart"": 0.08,
+                                    ""status"": ""sent"",
+                                    ""statusMessage"": ""sent"",
+                                    ""deliveryStatus"": ""delivered"",
+                                    ""queuedDateUtc"": 1676933000,
+                                    ""completedDateUtc"": 1676933412
+                                }
+                            ],
+                            ""status"": ""completed"",
+                            ""totalCost"": 0,
+                            ""metadata"": {},
+                            ""createdDateUtc"": 1676932998,
+                            ""submittedDateUtc"": null,
+                            ""completedDateUtc"": 1676933415,
+                            ""lastModifiedDateUtc"": 1676933415
+                        },
+                        ""success"": true,
+                        ""statusCode"": 200,
+                        ""message"": ""OK"",
+                        ""errors"": []
+                    }
+                    ";
             }
             else if (url.AbsoluteUri.Contains("fax/received/15/download")) // download fax received
             {

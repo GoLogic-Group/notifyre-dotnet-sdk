@@ -38,6 +38,8 @@ namespace Notifyre
             {
                 public Guid ID { get; set; }
 
+                public string FriendlyID { get; set; }
+
                 public string ToNumber { get; set; }
 
                 public string FromNumber { get; set; }

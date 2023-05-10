@@ -5,6 +5,7 @@ namespace Notifyre
     public class GetSmsReplyResponse
     {
         public Guid RecipientID { get; set; }
+        public string FriendlyID { get; set; }
 
         public string RecipientNumber { get; set; }
 
