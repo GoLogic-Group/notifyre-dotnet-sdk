@@ -1,8 +1,8 @@
 ﻿using Notifyre.Interfaces;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System;
 
 namespace NotifyreTests.Services
 {
@@ -19,13 +19,38 @@ namespace NotifyreTests.Services
         {
             string msg;
             HttpStatusCode? code = null;
-            if (url.AbsoluteUri.Contains("/sms/received?fromdate=&todate=&sort=desc&limit=100&skip=0"))
+            if (url.AbsoluteUri.Contains("/sms/received?fromdate=&todate=&sort=desc&tonumber=&fromnumber=&recipientid=00000000-0000-0000-0000-000000000000&includereplycontent=false&limit=100&skip=0"))
             {
                 msg = @"<?xml version=""1.0"" ?><GetCapabilities service=""WFS"" version=""1.0.0"" xmlns=""http://www.opengis.net/wfs"" />";
             }
             else if (url.AbsoluteUri.Contains("/sms/received?") && url.AbsoluteUri.Contains("1632096000")) // list sms replies request
             {
-                msg = "{\"payload\":{\"smsReplies\":[{\"recipientID\":\"09645834-7cdf-46e1-95bf-64e2547a5de5\",\"recipientNumber\":\"+61416906715\",\"senderNumber\":\"+61477789874\",\"replyID\":\"7cc692b0-5e78-4b59-a45d-c147b61afd95\",\"receivedDateUtc\":1654053477,\"contactDetails\":{\"firstName\":\"Go\",\"lastName\":\"logic\",\"organization\":\"Test GoLogic\"}}],\"total\":5},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = @"
+                        {
+                            ""payload"": {
+                                ""smsReplies"": [
+                                    {
+                                        ""recipientID"": ""09645834-7cdf-46e1-95bf-64e2547a5de5"",
+                                        ""friendlyID"": ""MLJOJOF4UHG0"",
+                                        ""recipientNumber"": ""+61416906715"",
+                                        ""senderNumber"": ""+61477789874"",
+                                        ""replyID"": ""067f11c0-38a5-402e-b060-8863ed263555"",
+                                        ""receivedDateUtc"": 1654053477,
+                                        ""contactDetails"": {
+                                            ""firstName"": ""Go"",
+                                            ""lastName"": ""logic"",
+                                            ""organization"": ""Test GoLogic""
+                                        }
+                                    }
+                                ],
+                                ""total"": 2
+                            },
+                            ""success"": true,
+                            ""statusCode"": 200,
+                            ""message"": ""OK"",
+                            ""errors"": []
+                        }
+                        ";
             }
             else if (url.AbsoluteUri.Contains("/sms/send?statustype=")) // list sms request
             {

@@ -12,6 +12,8 @@ namespace Notifyre
         {
             public Guid RecipientID { get; set; }
 
+            public string FriendlyID { get; set; }
+
             public string RecipientNumber { get; set; }
 
             public string SenderNumber { get; set; }
@@ -19,6 +21,8 @@ namespace Notifyre
             public string ReplyID { get; set; }
 
             public long ReceivedDateUtc { get; set; }
+
+            public string Message { get; set; }
 
             public ContactDetailsDto ContactDetails { get; set; }
 
