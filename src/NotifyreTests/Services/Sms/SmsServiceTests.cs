@@ -299,6 +299,7 @@ namespace NotifyreTests.Services.Sms
             actual.RecipientID.Should().Be(new Guid("09645834-7cdf-46e1-95bf-64e2547a5de5"));
             actual.RecipientNumber.Should().Be("+61416906715");
             actual.SenderNumber.Should().Be("+61477789874");
+            actual.ReplyID.Should().Be("067f11c0-38a5-402e-b060-8863ed263555");
             actual.ReceivedDateUtc.Should().Be(1654053477);
             actual.ContactDetails.FirstName.Should().Be("Go");
             actual.ContactDetails.LastName.Should().Be("logic");
