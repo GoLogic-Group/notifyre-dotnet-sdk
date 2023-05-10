@@ -19,7 +19,7 @@ namespace NotifyreTests.Services
         {
             string msg;
             HttpStatusCode? code = null;
-            if (url.AbsoluteUri.Contains("/sms/received?fromdate=&todate=&sort=desc&tonumber=&fromnumber=&recipientid=00000000-0000-0000-0000-000000000000&includereplycontent=false&limit=100&skip=0"))
+            if (url.AbsoluteUri.Contains("/sms/received?fromdate=&todate=&sort=desc&tonumber=&fromnumber=&recipientid=&includereplycontent=false&limit=100&skip=0"))
             {
                 msg = @"<?xml version=""1.0"" ?><GetCapabilities service=""WFS"" version=""1.0.0"" xmlns=""http://www.opengis.net/wfs"" />";
             }

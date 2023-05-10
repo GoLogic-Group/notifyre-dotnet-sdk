@@ -21,7 +21,7 @@ namespace Notifyre
         public string FromNumber { get; set; }
 
         [QueryParam]
-        public Guid RecipientID { get; set; }
+        public Guid? RecipientID { get; set; }
 
         [QueryParam]
         public bool IncludeReplyContent { get; set; } = false;
