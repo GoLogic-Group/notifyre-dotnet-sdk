@@ -25,6 +25,8 @@ namespace Notifyre
 
         public bool Unsubscribed { get; set; }
 
+        public string UnsubscribeKey { get; set; }
+
         public class GroupDto
         {
             public Guid ID { get; set; }
