@@ -74,7 +74,7 @@ namespace NotifyreTests.Services.Fax.FaxSend
             result.Faxes.Count.Should().Be(2);
             firstSentFax.ID.Should().Be("7155ef1a-c7ff-42bb-b2c8-71ccbfe31ee3");  // see above example response
             firstSentFax.RecipientID.Should().Be("9aca0071-2b61-4beb-bad2-a3ec8ce611e5");
-            firstSentFax.FromNumber.Should().Be("61291989589");
+            firstSentFax.FromNumber.Should().Be("Shared Number (+61291989589)");
             firstSentFax.To.Should().Be("+61711111111");
             firstSentFax.Reference.Should().Be("test fax");
             firstSentFax.CreatedDateUtc.Should().BeGreaterThan(0);
@@ -82,11 +82,11 @@ namespace NotifyreTests.Services.Fax.FaxSend
             firstSentFax.LastModifiedDateUtc.Should().BeGreaterThan(0);
             firstSentFax.HighQuality.Should().BeFalse();
             firstSentFax.Pages.Should().Be(4);
-            firstSentFax.Status.Should().Be("completed");
+            firstSentFax.Status.Should().Be("successful");
 
             secondSentFax.ID.Should().Be("48a626f9-45cb-4dc4-8a50-f8c9c2d0caa6");
             secondSentFax.RecipientID.Should().Be("532324e8-9dc6-48c1-8a1f-319e6e814cee");
-            secondSentFax.FromNumber.Should().Be("61291989589");
+            secondSentFax.FromNumber.Should().Be("Shared Number (+61291989589)");
             secondSentFax.To.Should().Be("+61745612378");
             secondSentFax.Reference.Should().Be("test fax for dev app");
             secondSentFax.CreatedDateUtc.Should().BeGreaterThan(0);
@@ -96,7 +96,7 @@ namespace NotifyreTests.Services.Fax.FaxSend
             secondSentFax.Pages.Should().Be(4);
             secondSentFax.Status.Should().Be("queued");
 
-            result.Total.Should().Be(10);
+            result.Total.Should().Be(2);
         }
 
         /* DownloadSentFaxAsync example response for the unit test

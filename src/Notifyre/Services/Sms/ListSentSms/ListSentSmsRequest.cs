@@ -12,6 +12,8 @@ namespace Notifyre
         [QueryParam]
         public long? ToDate { get; set; }
         [QueryParam]
+        public string Search { get; set; }
+        [QueryParam]
         public ListSmsRequestSortTypes? Sort { get; set; }
         [QueryParam]
         public int Limit { get; set; } = 100;

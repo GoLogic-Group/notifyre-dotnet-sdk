@@ -241,7 +241,50 @@ namespace NotifyreTests.Services
             }
             else if (url.AbsoluteUri.Contains("/fax/send")) // list fax sent
             {
-                msg = "{\"payload\":{\"faxes\":[{\"id\":\"7155ef1a-c7ff-42bb-b2c8-71ccbfe31ee3\",\"recipientID\":\"9aca0071-2b61-4beb-bad2-a3ec8ce611e5\",\"fromNumber\":\"61291989589\",\"to\":\"+61711111111\",\"reference\":\"test fax\",\"createdDateUtc\":1630454410,\"queuedDateUtc\":1630454411,\"lastModifiedDateUtc\":1630454412,\"highQuality\":false,\"pages\":4,\"status\":\"completed\"},{\"id\":\"48a626f9-45cb-4dc4-8a50-f8c9c2d0caa6\",\"recipientID\":\"532324e8-9dc6-48c1-8a1f-319e6e814cee\",\"fromNumber\":\"61291989589\",\"to\":\"+61745612378\",\"reference\":\"test fax for dev app\",\"createdDateUtc\":1630454413,\"queuedDateUtc\":1630454414,\"lastModifiedDateUtc\":1630454415,\"highQuality\":false,\"pages\":4,\"status\":\"queued\"}],\"total\":10},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = @"
+                    {
+                        ""payload"": {
+                            ""faxes"": [
+                                {
+                                    ""id"": ""7155ef1a-c7ff-42bb-b2c8-71ccbfe31ee3"",
+                                    ""friendlyID"": ""TGR0L77T3QDR"",
+                                    ""recipientID"": ""9aca0071-2b61-4beb-bad2-a3ec8ce611e5"",
+                                    ""fromNumber"": ""Shared Number (+61291989589)"",
+                                    ""to"": ""+61711111111"",
+                                    ""reference"": ""test fax"",
+                                    ""createdDateUtc"": 1683518132,
+                                    ""queuedDateUtc"": 1683518809,
+                                    ""lastModifiedDateUtc"": 1683518906,
+                                    ""highQuality"": false,
+                                    ""pages"": 4,
+                                    ""status"": ""successful"",
+                                    ""failedMessage"": null
+                                },
+                                {
+                                    ""id"": ""48a626f9-45cb-4dc4-8a50-f8c9c2d0caa6"",
+                                    ""friendlyID"": ""NDUMXBO0J2X2"",
+                                    ""recipientID"": ""532324e8-9dc6-48c1-8a1f-319e6e814cee"",
+                                    ""fromNumber"": ""Shared Number (+61291989589)"",
+                                    ""to"": ""+61745612378"",
+                                    ""reference"": ""test fax for dev app"",
+                                    ""createdDateUtc"": 1678400752,
+                                    ""queuedDateUtc"": 1678400756,
+                                    ""lastModifiedDateUtc"": 1678400846,
+                                    ""highQuality"": false,
+                                    ""pages"": 4,
+                                    ""status"": ""queued"",
+                                    ""failedMessage"": null
+                                }
+                            ],
+                            ""total"": 2
+                        },
+                        ""success"": true,
+                        ""statusCode"": 200,
+                        ""message"": ""OK"",
+                        ""errors"": []
+                    }
+                    ";
+
             }
             else if (url.AbsoluteUri.Contains("addressbook/contacts/1ff6263a-23b9-4de5-bdf3-d83d99bb43c7")) // get contact
             {
