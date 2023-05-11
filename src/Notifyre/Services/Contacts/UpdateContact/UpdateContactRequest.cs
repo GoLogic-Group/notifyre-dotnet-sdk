@@ -27,6 +27,7 @@ namespace Notifyre
         [BodyParam]
         public string MobileNumber { get; set; }
 
+        [BodyParam]
         public bool Unsubscribed { get; set; }
 
         [BodyParam]
