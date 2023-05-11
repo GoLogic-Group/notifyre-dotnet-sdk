@@ -587,7 +587,10 @@ namespace NotifyreTests.Services.Contacts
         {
             // Arrange
             var service = new ContactsService(_HttpHandlerFake);
-            var request = new RemoveContactsFromGroupRequest() { GroupID = Guid.NewGuid() };
+            var request = new RemoveContactsFromGroupRequest() { 
+                Contacts = new List<Guid> { Guid.NewGuid() }, 
+                GroupID = Guid.NewGuid() 
+            };
 
             // Act 
             var result = await service.RemoveContactsFromGroupAsync(request);
