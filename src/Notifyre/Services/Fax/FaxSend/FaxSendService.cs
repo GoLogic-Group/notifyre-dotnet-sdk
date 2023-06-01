@@ -21,6 +21,7 @@ namespace Notifyre.Services.Fax.FaxSend
         protected string RecipientsEndpoint => "recipients";
         protected string ConversionEndpoint => "conversion";
         protected string CoverPagesEndpoint => "fax/coverpages";
+        protected string PricesEndpoint => "fax/send/prices";
         private TimeSpan _conversionTimeout => TimeSpan.FromSeconds(100);
 
         public FaxSendService(NotifyreConfiguration notifyreConfiguration) : base(notifyreConfiguration)
@@ -165,6 +166,13 @@ namespace Notifyre.Services.Fax.FaxSend
             var uri = UrlUtil.CreateUrl(Address, ConversionEndpoint, request.FileName);
             var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
             return (await ReadJsonResponse<GetDocumentStatusResponse>(result).ConfigureAwait(false)).Payload;
+        }
+
+        public async Task<ListFaxPricesResponse> ListPricesAsync()
+        {
+            var uri = UrlUtil.CreateUrl(BasePath, PricesEndpoint);
+            var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
+            return (await ReadJsonResponse<ListFaxPricesResponse>(result).ConfigureAwait(false)).Payload;
         }
     }
 }

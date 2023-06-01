@@ -212,5 +212,57 @@ namespace NotifyreTests.Services.Fax.FaxSend
             actual.Name.Should().Be("simple template");
             actual.IsDefault.Should().BeTrue();
         }
+
+        /*
+         {
+            "payload": {
+                "prices": [
+                    {
+                        "countryCode": "US",
+                        "countryName": "USA",
+                        "prefix": "1",
+                        "price": 0.03,
+                        "currency": "AUD"
+                    },
+                    {
+                        "countryCode": "AT",
+                        "countryName": "Austria",
+                        "prefix": "43",
+                        "price": 0.15,
+                        "currency": "AUD"
+                    }
+                ]
+            },
+            "success": true,
+            "statusCode": 200,
+            "message": "OK",
+            "errors": []
+        }
+         */
+
+        [Fact]
+        public async Task ListPricesAsync_ValidInput_ReturnsOk()
+        {
+            // Arrange
+            var service = new FaxSendService(_HttpHandlerFake);
+
+            // Act
+            var result = await service.ListPricesAsync();
+            var price1 = result.Prices[0];
+            var price2 = result.Prices[1];
+
+            // Assert
+            result.Prices.Count.Should().Be(2);
+            price1.CountryCode.Should().Be("US");
+            price1.CountryName.Should().Be("USA");
+            price1.Prefix.Should().Be("1");
+            price1.Price.Should().Be(0.03m);
+            price1.Currency.Should().Be("AUD");
+            price2.CountryCode.Should().Be("AT");
+            price2.CountryName.Should().Be("Austria");
+            price2.Prefix.Should().Be("43");
+            price2.Price.Should().Be(0.15m);
+            price2.Currency.Should().Be("AUD");
+        }
     }
 }
