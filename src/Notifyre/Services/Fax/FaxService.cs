@@ -30,5 +30,8 @@ namespace Notifyre
 
         public Task<SubmitFaxResponse> SubmitFaxAsync(SubmitFaxRequest request) => _sendService.SubmitFaxAsync(request);
 
+        public Task<ListFaxPricesResponse> ListPricesAsync() => _sendService.ListPricesAsync();
+
+
     }
 }

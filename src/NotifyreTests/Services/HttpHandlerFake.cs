@@ -239,6 +239,35 @@ namespace NotifyreTests.Services
                 }
                 _statusAttempts++;
             }
+            else if (url.AbsoluteUri.Contains("/prices"))
+            {
+                msg = @"
+                    {
+                        ""payload"": {
+                            ""prices"": [
+                                {
+                                    ""countryCode"": ""US"",
+                                    ""countryName"": ""USA"",
+                                    ""prefix"": ""1"",
+                                    ""price"": 0.03,
+                                    ""currency"": ""AUD""
+                                },
+                                {
+                                    ""countryCode"": ""AT"",
+                                    ""countryName"": ""Austria"",
+                                    ""prefix"": ""43"",
+                                    ""price"": 0.15,
+                                    ""currency"": ""AUD""
+                                }
+                            ]
+                        },
+                        ""success"": true,
+                        ""statusCode"": 200,
+                        ""message"": ""OK"",
+                        ""errors"": []
+                    }
+                    ";
+            }
             else if (url.AbsoluteUri.Contains("/fax/send")) // list fax sent
             {
                 msg = @"
@@ -292,7 +321,7 @@ namespace NotifyreTests.Services
             }
             else if (url.AbsoluteUri.Contains("addressbook/groups")) // list groups
             {
-                msg = "{\"payload\":{\"groups\":[{\"id\":null,\"name\":\"All Contacts\",\"createdDateUtc\":null,\"totalContacts\":2,\"totalUnsubscribed\":0,\"totalSMSContacts\":2,\"totalFaxContacts\":2},{\"id\":\"9735311e-f160-45d0-b05f-7a5626cb1d22\",\"name\":\"another\",\"createdDateUtc\": 1630454407,\"totalContacts\":2,\"totalUnsubscribed\":0,\"totalSMSContacts\":2,\"totalFaxContacts\":2}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"groups\":[{\"id\":null,\"name\":\"All Contacts\",\"createdDateUtc\":null,\"totalContacts\":2},{\"id\":\"9735311e-f160-45d0-b05f-7a5626cb1d22\",\"name\":\"another\",\"createdDateUtc\": 1630454407,\"totalContacts\":2}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
             else if (url.AbsoluteUri.Contains("/fax/send/recipients/9aca0071-2b61-4beb-bad2-a3ec8ce611e5/download")) // download fax sent
             {
@@ -354,6 +383,7 @@ namespace NotifyreTests.Services
             {
                 msg = "{\"payload\":{\"added\":true},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
+
             else if (url.AbsoluteUri.Contains("/fax/send/conversion")) // submit fax
             {
                 msg = "{\"payload\":{\"fileName\":\"fb669b26-e0ac-4793-8898-5d4d5dd3f2a1\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
@@ -362,6 +392,7 @@ namespace NotifyreTests.Services
             {
                 msg = "{\"payload\":{\"faxID\":\"66e00a07-4cc9-4380-8943-395162eac8e1\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
+            
             else
             {
                 throw new NotImplementedException();

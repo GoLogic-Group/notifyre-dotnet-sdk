@@ -9,5 +9,8 @@ namespace Notifyre
         [BodyParam]
         public List<Guid> Groups { get; set; }
 
+        [BodyParam]
+        public bool IncludeContacts { get; set; }
+
     }
 }

@@ -17,7 +17,7 @@ namespace Notifyre
         public int Limit { get; set; }
 
         [BodyParam]
-        public string Type { get; set; }
+        public ListGroupsContactNumberType Type { get; set; }
 
         [BodyParam]
         public string SortBy { get; set; } = "name";
@@ -36,5 +36,10 @@ namespace Notifyre
     {
         asc,
         desc
+    }
+    public enum ListGroupsContactNumberType
+    {
+        FaxNumber,
+        MobileNumber
     }
 }
