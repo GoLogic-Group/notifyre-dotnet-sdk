@@ -24,6 +24,8 @@ namespace Notifyre
 
             public string Message { get; set; }
 
+            public bool HasMmsDocuments { get; set; } = false;
+
             public ContactDetailsDto ContactDetails { get; set; }
 
         }

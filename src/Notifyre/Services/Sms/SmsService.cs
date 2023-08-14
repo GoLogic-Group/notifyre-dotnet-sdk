@@ -12,6 +12,8 @@ namespace Notifyre
         protected string NumbersEndpoint => "sms/numbers";
         protected string PricesEndpoint => "sms/send/prices";
 
+        protected string MmsEndpoint => "mms/received";
+
         public SmsService(NotifyreConfiguration notifyreConfiguration) : base(notifyreConfiguration)
         {
         }
@@ -85,6 +87,15 @@ namespace Notifyre
             var uri = UrlUtil.CreateUrl(BasePath, PricesEndpoint);
             var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
             return (await ReadJsonResponse<ListFaxPricesResponse>(result).ConfigureAwait(false)).Payload;
+        }
+
+        public async Task<DownloadMmsReplyResponse> DownloadMmsReplyAsync(
+            DownloadMmsReplyRequest request
+        )
+        {
+            var uri = UrlUtil.CreateUrl(BasePath, MmsEndpoint, request.ReplyID, "download");
+            var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
+            return (await ReadJsonResponse<DownloadMmsReplyResponse>(result).ConfigureAwait(false)).Payload;
         }
     }
 }

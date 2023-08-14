@@ -296,7 +296,7 @@ namespace NotifyreTests.Services.Sms
             var actual = result.SmsReplies[0];
 
             // Assert
-            result.SmsReplies.Count.Should().Be(1);
+            result.SmsReplies.Count.Should().Be(2);
             actual.RecipientID.Should().Be(new Guid("09645834-7cdf-46e1-95bf-64e2547a5de5"));
             actual.RecipientNumber.Should().Be("+61416906715");
             actual.SenderNumber.Should().Be("+61477789874");
@@ -305,6 +305,7 @@ namespace NotifyreTests.Services.Sms
             actual.ContactDetails.FirstName.Should().Be("Go");
             actual.ContactDetails.LastName.Should().Be("logic");
             actual.ContactDetails.Organization.Should().Be("Test GoLogic");
+            actual.HasMmsDocuments.Should().Be(false);
         }
 
         /* GetSmsReplyAsync example response for a unit test
@@ -468,6 +469,24 @@ namespace NotifyreTests.Services.Sms
             price2.Prefix.Should().Be("43");
             price2.Price.Should().Be(0.15m);
             price2.Currency.Should().Be("AUD");
+        }
+
+        [Fact]
+        public async Task DownloadMmsReplyAsync_ValidInput_ReturnsOk()
+        {
+            // Arrange
+            var request = new DownloadMmsReplyRequest()
+            {
+                ReplyID = "6cc7cc1f-b983-4c1a-9d78-3eccbbee355e"
+            };
+            var service = new SmsService(_HttpHandlerFake);
+
+            // Act 
+            var result = await service.DownloadMmsReplyAsync(request);
+
+            // Assert
+            result.DocumentList[0].Base64Str.Should().Be("aksfioqyfn1pi");
+            result.DocumentList[0].Type.Should().Be("image/jpeg");
         }
     }
 }

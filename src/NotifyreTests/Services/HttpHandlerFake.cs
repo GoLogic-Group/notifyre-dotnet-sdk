@@ -40,7 +40,22 @@ namespace NotifyreTests.Services
                                         ""firstName"": ""Go"",
                                         ""lastName"": ""logic"",
                                         ""organization"": ""Test GoLogic""
-                                    }
+                                    },
+                                    ""hasMmsDocuments"": false
+                                },
+                                {
+                                    ""recipientID"": ""09645834-7cdf-46e1-95bf-64e2547a5de5"",
+                                    ""friendlyID"": ""MLJOJOF4UHG0"",
+                                    ""recipientNumber"": ""+61416906715"",
+                                    ""senderNumber"": ""+61477789874"",
+                                    ""replyID"": ""067f11c0-38a5-402e-b060-8863ed263555"",
+                                    ""receivedDateUtc"": 1654053477,
+                                    ""contactDetails"": {
+                                        ""firstName"": ""Go"",
+                                        ""lastName"": ""logic"",
+                                        ""organization"": ""Test GoLogic""
+                                    },
+                                    ""hasMmsDocuments"": true
                                 }
                             ],
                             ""total"": 2
@@ -112,6 +127,25 @@ namespace NotifyreTests.Services
                                         ""lastName"": ""logic"",
                                         ""organization"": ""Test GoLogic""
                                     }
+                        },
+                        ""success"": true,
+                        ""statusCode"": 200,
+                        ""message"": ""OK"",
+                        ""errors"": []
+                    }
+                    ";
+            }
+            else if (url.AbsoluteUri.Contains("/mms/received/6cc7cc1f-b983-4c1a-9d78-3eccbbee355e/download")) // download mms reply
+            {
+                msg = @"
+                    {
+                        ""payload"": {
+                            ""documentList"": [
+                                {
+                                    ""base64Str"": ""aksfioqyfn1pi"",
+                                    ""type"": ""image/jpeg"",
+                                }
+                            ]                           
                         },
                         ""success"": true,
                         ""statusCode"": 200,
