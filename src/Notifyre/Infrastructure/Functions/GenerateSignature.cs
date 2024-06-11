@@ -8,18 +8,17 @@ namespace Notifyre.Infrastructure.Functions
     {
         public static string Execute(string message, string key)
         {
-            ASCIIEncoding encoding = new ASCIIEncoding();
+            key = key ?? "";
 
-            byte[] messageBytes = encoding.GetBytes(message);
-            byte[] keyBytes = encoding.GetBytes(key);
+            byte[] messageBytes = Encoding.UTF8.GetBytes(message);
+            byte[] keyBytes = Encoding.UTF8.GetBytes(key);
             byte[] hashBytes;
 
-            using (HMACSHA256 hash = new HMACSHA256(keyBytes))
+            using (var hash = new HMACSHA256(keyBytes))
             {
                 hashBytes = hash.ComputeHash(messageBytes);
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
             }
-
-            return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
         }
     }
 }
