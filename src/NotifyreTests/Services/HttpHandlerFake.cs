@@ -136,6 +136,31 @@ namespace NotifyreTests.Services
                     }
                     ";
             }
+            else if (url.AbsoluteUri.Contains("/sms/received/a3a1f58f-c54b-4c49-a9ae-0e0f8f11550X")) // get sms reply
+            {
+                msg = @"
+                    {
+                        ""payload"": {
+                            ""recipientID"": ""baf0be23-f102-48dd-90f5-2183c19cf890"",
+                            ""friendlyID"": ""MLJOJOF4UHG0"",
+                            ""recipientNumber"": ""+61416906715"",
+                            ""senderNumber"": ""+61477789879"",
+                            ""replyID"": ""a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a"",
+                            ""message"": ""Gologic reply 1"",
+                            ""receivedDateUtc"": 1635717854,
+                            ""contactDetails"": {
+                                        ""firstName"": ""Go"",
+                                        ""lastName"": ""logic"",
+                                        ""organization"": ""Test GoLogic""
+                                    }
+                        },
+                        ""success"": true,
+                        ""statusCode"": 200,
+                        ""message"": ""OK"",
+                        ""errors"": []
+                    }
+                    ";
+            }
             else if (url.AbsoluteUri.Contains("/mms/received/6cc7cc1f-b983-4c1a-9d78-3eccbbee355e/download")) // download mms reply
             {
                 msg = @"

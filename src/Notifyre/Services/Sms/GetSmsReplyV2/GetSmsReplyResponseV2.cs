@@ -2,7 +2,7 @@
 
 namespace Notifyre
 {
-    public class GetSmsReplyResponse
+    public class GetSmsReplyResponseV2
     {
         public Guid RecipientID { get; set; }
         public string FriendlyID { get; set; }
@@ -14,6 +14,7 @@ namespace Notifyre
         public string ReplyID { get; set; }
 
         public string Message { get; set; }
+        public string Subject  { get; set; } = string.Empty;
 
         public long ReceivedDateUtc { get; set; }
 

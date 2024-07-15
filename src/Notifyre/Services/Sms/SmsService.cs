@@ -75,6 +75,15 @@ namespace Notifyre
             return (await ReadJsonResponse<GetSmsReplyResponse>(result).ConfigureAwait(false)).Payload;
         }
 
+        public async Task<GetSmsReplyResponseV2> GetSmsReplyAsyncV2(
+            GetSmsReplyRequestV2 request
+)
+        {
+            var uri = UrlUtil.CreateUrl(BasePath, RepliesEndpoint, request.ReplyID);
+            var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
+            return (await ReadJsonResponse<GetSmsReplyResponseV2>(result).ConfigureAwait(false)).Payload;
+        }
+
         public async Task<ListSmsNumbersResponse> ListSmsNumbersAsync()
         {
             var uri = UrlUtil.CreateUrl(BasePath, NumbersEndpoint);

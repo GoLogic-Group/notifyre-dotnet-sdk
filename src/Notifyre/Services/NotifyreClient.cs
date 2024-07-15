@@ -34,7 +34,7 @@ namespace Notifyre
                 var responseMsg = await message.Content.ReadAsStringAsync().ConfigureAwait(false);
                 response = JsonConvert.DeserializeObject<BaseResponse<T>>(responseMsg, new JsonSerializerSettings
                 {
-                    MissingMemberHandling = MissingMemberHandling.Error
+                    MissingMemberHandling = MissingMemberHandling.Ignore
                 });
             }
             catch (JsonReaderException)

@@ -330,12 +330,34 @@ namespace NotifyreTests.Services.Sms
             // Arrange
             var request = new GetSmsReplyRequest()
             {
-                ReplyID = "a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a"
+                ReplyID = "a3a1f58f-c54b-4c49-a9ae-0e0f8f11550X"
             };
             var service = new SmsService(_HttpHandlerFake);
 
             // Act 
             var result = await service.GetSmsReplyAsync(request);
+
+            // Assert
+            result.RecipientID.Should().Be(new Guid("baf0be23-f102-48dd-90f5-2183c19cf890"));
+            result.RecipientNumber.Should().Be("+61416906715");
+            result.SenderNumber.Should().Be("+61477789879");
+            result.ReplyID.Should().Be("a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a");
+            result.Message.Should().Be("Gologic reply 1");
+            result.ReceivedDateUtc.Should().Be(1635717854);
+        }
+
+        [Fact]
+        public async Task GetSmsReplyV2Async_ValidInput_ReturnsOk()
+        {
+            // Arrange
+            var request = new GetSmsReplyRequestV2()
+            {
+                ReplyID = "a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a"
+            };
+            var service = new SmsService(_HttpHandlerFake);
+
+            // Act 
+            var result = await service.GetSmsReplyAsyncV2(request);
 
             // Assert
             result.RecipientID.Should().Be(new Guid("baf0be23-f102-48dd-90f5-2183c19cf890"));
