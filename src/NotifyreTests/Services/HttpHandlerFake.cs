@@ -121,6 +121,7 @@ namespace NotifyreTests.Services
                             ""senderNumber"": ""+61477789879"",
                             ""replyID"": ""a3a1f58f-c54b-4c49-a9ae-0e0f8f11550a"",
                             ""message"": ""Gologic reply 1"",
+                            ""subject"": ""Gologic subject 1"",
                             ""receivedDateUtc"": 1635717854,
                             ""contactDetails"": {
                                         ""firstName"": ""Go"",

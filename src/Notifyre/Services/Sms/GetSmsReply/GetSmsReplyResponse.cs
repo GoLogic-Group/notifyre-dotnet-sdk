@@ -14,6 +14,7 @@ namespace Notifyre
         public string ReplyID { get; set; }
 
         public string Message { get; set; }
+        public string Subject  { get; set; }
 
         public long ReceivedDateUtc { get; set; }
 
