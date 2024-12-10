@@ -13,6 +13,7 @@ namespace Notifyre
         protected string PricesEndpoint => "sms/send/prices";
 
         protected string MmsEndpoint => "mms/received";
+        protected string VersionSuffix => "/v2?";
 
         public SmsService(NotifyreConfiguration notifyreConfiguration) : base(notifyreConfiguration)
         {
@@ -73,6 +74,15 @@ namespace Notifyre
             var uri = UrlUtil.CreateUrl(BasePath, RepliesEndpoint, request.ReplyID);
             var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
             return (await ReadJsonResponse<GetSmsReplyResponse>(result).ConfigureAwait(false)).Payload;
+        }
+
+        public async Task<GetSmsReplyResponseV2> GetSmsReplyAsyncV2(
+            GetSmsReplyRequestV2 request
+)
+        {
+            var uri = UrlUtil.CreateUrl(BasePath, RepliesEndpoint, request.ReplyID, VersionSuffix);
+            var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
+            return (await ReadJsonResponse<GetSmsReplyResponseV2>(result).ConfigureAwait(false)).Payload;
         }
 
         public async Task<ListSmsNumbersResponse> ListSmsNumbersAsync()
