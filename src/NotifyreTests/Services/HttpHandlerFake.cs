@@ -186,7 +186,7 @@ namespace NotifyreTests.Services
             }
             else if ( // get sms (recipient) request
               url.AbsoluteUri.Contains("recipients")
-              && url.AbsoluteUri.Contains("120a5a36-937c-47c0-8f2d-74d1ea06c012") // recipientId
+              && url.AbsoluteUri.Contains("120a5a36-937c-47c0-8f2d-74d1ea06c012") // recipientIdcreate
               && url.AbsoluteUri.Contains("2bdfff1a-461d-4b5c-b0bc-69af5535fc41") // messageId
             )
             {
@@ -416,7 +416,7 @@ namespace NotifyreTests.Services
                 && url.AbsoluteUri.Contains("addressbook/contacts")
             )
             {
-                msg = "{\"payload\":{\"id\":\"2e759a5f-ee8b-443d-ae2e-3e7832e6a1ff\",\"lastName\":\"Baltes\",\"organization\":\"breaking changes inc.\",\"email\":\"pascal.baltes@gologic.com.au\",\"faxNumber\":\"+61711111111\",\"mobileNumber\":\"+61477245453\",\"groups\":[{\"id\":\"c0333f6d-0d14-4050-a84d-15b9dc47df2c\",\"name\":\"Gologic Devs\",\"createdDateUtc\": 1630454401}],\"customFields\":[{\"id\":\"8ff84b68-8d3e-4bff-b28e-81ccbf9e4ca0\",\"key\":\"cf1\",\"customValue\":\"Joined 05.2021\"},{\"id\":\"c14db300-5ef5-412c-871d-ce7e08a77bdc\",\"key\":\"cf2\",\"customValue\":\"Likes Chocolate\"}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":\"INVALID\",\"success\":true,\"statusCode\":200,\"message\":\"The response could not be deserialized\",\"errors\":[]}";
             }
             else if (url.AbsoluteUri.Contains("/sms/send")) // submit sms request
             {
@@ -456,7 +456,7 @@ namespace NotifyreTests.Services
             {
                 msg = "{\"payload\":{\"faxID\":\"66e00a07-4cc9-4380-8943-395162eac8e1\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
-            
+
             else
             {
                 throw new NotImplementedException();
@@ -477,7 +477,8 @@ namespace NotifyreTests.Services
                 && body.Contains(Guid.Empty.ToString())
             )
             {
-                msg = "{\"payload\":{\"hasDeleted\":true},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":\"INVALID\",\"success\":true,\"statusCode\":200,\"message\":\"The response could not be deserialized\",\"errors\":[]}";
+
             }
             else if (url.AbsoluteUri.Contains("addressbook/groups/contacts")) // delete contacts from groups
             {
