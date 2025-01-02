@@ -11,7 +11,8 @@
       "CreatedDateUtc": null,
       "LastModifiedDateUtc": 1634459402,
       "StartDateUtc": 1634392800,
-      "FinishDateUtc": null
+      "FinishDateUtc": null,
+      "CampaignID":  "12345"
     }
   ],
   "SmsSenderIds": [

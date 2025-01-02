@@ -137,6 +137,7 @@ namespace NotifyreTests.Services.Sms
             result.Recipients[0].ToNumber.Should().Be("+61477345123");
             result.Recipients[0].QueuedDateUtc.Should().Be(1676933000);
             result.Recipients[0].FromNumber.Should().Be("Shared Number (+61416906716)");
+            result.CampaignName.Should().Be("test");
         }
 
         [Fact]
@@ -204,7 +205,8 @@ namespace NotifyreTests.Services.Sms
                 {
                     {"TestKey", "TestVal"},
                     {"TestKey1", "TestVal1"}
-                }
+                },
+                CampaignName = "test"
             };
             var service = new SmsService(_HttpHandlerFake);
 
@@ -414,7 +416,8 @@ namespace NotifyreTests.Services.Sms
                         CreatedDateUtc = null,
                         LastModifiedDateUtc = 1634459402,
                         StartDateUtc = 1634392800,
-                        FinishDateUtc = null
+                        FinishDateUtc = null,
+                        CampaignID = "12345"
                     }
                 },
                 SmsSenderIds = new List<ListSmsNumbersResponse.SmsSenderIdDto>

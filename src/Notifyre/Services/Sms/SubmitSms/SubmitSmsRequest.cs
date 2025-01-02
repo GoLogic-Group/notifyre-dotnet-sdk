@@ -19,6 +19,8 @@ namespace Notifyre
         public string CallbackUrl { get; set; }
         [BodyParam]
         public Dictionary<string, string> Metadata { get; set; }
+        [BodyParam]
+        public string CampaignName { get; set; }
 
     }
 

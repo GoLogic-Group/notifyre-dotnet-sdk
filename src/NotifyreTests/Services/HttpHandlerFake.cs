@@ -182,7 +182,7 @@ namespace NotifyreTests.Services
             }
             else if (url.AbsoluteUri.Contains("/sms/numbers")) // list sms numbers
             {
-                msg = "{\"payload\":{\"smsNumbers\":[{\"id\":\"39be4fb9-a875-468a-904d-c52d4dad21ee\",\"countryCode\":61,\"assignedNumber\":416234582,\"e164\":\"+61416234582\",\"provider\":\"AATP\",\"status\":\"active\",\"subscriptionID\":\"616bdf0a9400548a177ccd47\",\"createdDateUtc\":null,\"lastModifiedDateUtc\":1634459402,\"startDateUtc\":1634392800,\"finishDateUtc\":null}],\"smsSenderIds\":[{\"id\":\"18194c53-a577-4c25-ba48-0cf4fd3054d4\",\"name\":\"SenderId\",\"status\":\"active\",\"createdDateUtc\":1632727486,\"lastModifiedDateUtc\":1632727486}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+                msg = "{\"payload\":{\"smsNumbers\":[{\"id\":\"39be4fb9-a875-468a-904d-c52d4dad21ee\",\"countryCode\":61,\"assignedNumber\":416234582,\"e164\":\"+61416234582\",\"provider\":\"AATP\",\"status\":\"active\",\"subscriptionID\":\"616bdf0a9400548a177ccd47\",\"createdDateUtc\":null,\"lastModifiedDateUtc\":1634459402,\"startDateUtc\":1634392800,\"finishDateUtc\":null,\"campaignID\":\"12345\"}],\"smsSenderIds\":[{\"id\":\"18194c53-a577-4c25-ba48-0cf4fd3054d4\",\"name\":\"SenderId\",\"status\":\"active\",\"createdDateUtc\":1632727486,\"lastModifiedDateUtc\":1632727486}]},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
             else if ( // get sms (recipient) request
               url.AbsoluteUri.Contains("recipients")
@@ -217,7 +217,8 @@ namespace NotifyreTests.Services
                             ""createdDateUtc"": 1676932998,
                             ""submittedDateUtc"": null,
                             ""completedDateUtc"": 1676933415,
-                            ""lastModifiedDateUtc"": 1676933415
+                            ""lastModifiedDateUtc"": 1676933415,
+                            ""campaignName"": ""test""
                         },
                         ""success"": true,
                         ""statusCode"": 200,
@@ -257,7 +258,8 @@ namespace NotifyreTests.Services
                             ""createdDateUtc"": 1676932998,
                             ""submittedDateUtc"": null,
                             ""completedDateUtc"": 1676933415,
-                            ""lastModifiedDateUtc"": 1676933415
+                            ""lastModifiedDateUtc"": 1676933415,
+                            ""campaignName"": ""test""
                         },
                         ""success"": true,
                         ""statusCode"": 200,
@@ -347,7 +349,8 @@ namespace NotifyreTests.Services
                                     ""highQuality"": false,
                                     ""pages"": 4,
                                     ""status"": ""successful"",
-                                    ""failedMessage"": null
+                                    ""failedMessage"": null,
+                                    ""campaignName"":""test""
                                 },
                                 {
                                     ""id"": ""48a626f9-45cb-4dc4-8a50-f8c9c2d0caa6"",
@@ -362,7 +365,8 @@ namespace NotifyreTests.Services
                                     ""highQuality"": false,
                                     ""pages"": 4,
                                     ""status"": ""queued"",
-                                    ""failedMessage"": null
+                                    ""failedMessage"": null,
+                                    ""campaignName"":""test""
                                 }
                             ],
                             ""total"": 2

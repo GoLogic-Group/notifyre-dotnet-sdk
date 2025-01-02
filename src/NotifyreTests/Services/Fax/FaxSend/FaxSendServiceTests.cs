@@ -172,7 +172,8 @@ namespace NotifyreTests.Services.Fax.FaxSend
                         }
                     },
                     Header = "header",
-                    IsHighQuality = true
+                    IsHighQuality = true,
+                    CampaignName = "test"
                 }
             };
 

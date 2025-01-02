@@ -11,11 +11,14 @@ namespace Notifyre
         public SubmitFax Faxes { get; set; }
         [BodyParam]
         public string TemplateName { get; set; }
+        public string Source { get; set; }
 
     }
 
     public class SubmitFax
     {
+        [BodyParam]
+        public string CampaignName { get; set; } = string.Empty;
         [BodyParam]
         public List<FaxRecipient> Recipients { get; set; }
 
@@ -45,6 +48,8 @@ namespace Notifyre
 
         [BodyParam]
         public long? ScheduledDate { get; set; }
+        [BodyParam]
+        public string CampaignSummaryToEmail { get; set; }
 
     }
 
