@@ -205,7 +205,7 @@ namespace NotifyreTests.Services.Contacts
                 Email = "pascal.baltes@gologic.com.au",
                 FaxNumber = "+61711111111",
                 MobileNumber = "+61477245453",
-                GroupName = "Gologic Devs"
+                GroupName = "Throw"
             };
 
             // Act 

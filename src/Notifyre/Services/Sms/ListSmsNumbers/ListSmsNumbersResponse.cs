@@ -21,6 +21,7 @@ namespace Notifyre
             public long? LastModifiedDateUtc { get; set; }
             public long StartDateUtc { get; set; }
             public long? FinishDateUtc { get; set; }
+            public string CampaignID { get; set; }
         }
 
         public class SmsSenderIdDto

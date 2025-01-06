@@ -19,6 +19,10 @@ namespace Notifyre
         public int Limit { get; set; } = 100;
         [QueryParam]
         public int Skip { get; set; } = 0;
+        [QueryParam]
+        public string ToNumber { get; set; }
+        [QueryParam]
+        public string FromNumber { get; set; }
 
     }
 
