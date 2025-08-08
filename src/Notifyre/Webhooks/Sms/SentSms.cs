@@ -1,4 +1,6 @@
-﻿namespace Notifyre.Webhooks.Sms
+﻿using System.Collections.Generic;
+
+namespace Notifyre.Webhooks.Sms
 {
     public class SentSms
     {
@@ -13,6 +15,7 @@
         public long? SubmittedDateUtc { get; set; }
         public long? CompletedDateUtc { get; set; }
         public long? LastModifiedDateUtc { get; set; }
+        public Dictionary<string, string> Metadata { get; set; }
 
         public class RecipientDto
         {
