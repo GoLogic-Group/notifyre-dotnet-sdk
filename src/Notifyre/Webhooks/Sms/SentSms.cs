@@ -11,11 +11,11 @@ namespace Notifyre.Webhooks.Sms
         public RecipientDto Recipient { get; set; } = new RecipientDto();
         public string Status { get; set; }
         public long TotalCost { get; set; }
+        public Dictionary<string, string> Metadata { get; set; }
         public long? CreatedDateUtc { get; set; }
         public long? SubmittedDateUtc { get; set; }
         public long? CompletedDateUtc { get; set; }
         public long? LastModifiedDateUtc { get; set; }
-        public Dictionary<string, string> Metadata { get; set; }
 
         public class RecipientDto
         {
@@ -27,6 +27,8 @@ namespace Notifyre.Webhooks.Sms
             public int MessageParts { get; set; }
             public decimal CostPerPart { get; set; }
             public string Status { get; set; }
+            public string StatusMessage { get; set; }
+            public string DeliveryStatus { get; set; }
             public long? QueuedDateUtc { get; set; }
             public long? CompletedDateUtc { get; set; }
         }
