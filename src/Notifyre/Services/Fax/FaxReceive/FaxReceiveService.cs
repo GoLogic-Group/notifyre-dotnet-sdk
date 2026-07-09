@@ -9,6 +9,7 @@ namespace Notifyre.Services.Fax.FaxReceive
     {
         protected override string Path => "fax/received";
         protected string DownloadEndpoint => "download";
+        protected string DownloadAndDeleteEndpoint => "download-and-delete";
         protected string NumbersEndpoint => "fax/numbers";
 
         public FaxReceiveService(NotifyreConfiguration notifyreConfiguration) : base(notifyreConfiguration)
@@ -36,6 +37,16 @@ namespace Notifyre.Services.Fax.FaxReceive
             var uri = UrlUtil.CreateUrl(Address, request.FaxID.ToString(), DownloadEndpoint);
             var result = await _HttpClient.GetAsync(uri).ConfigureAwait(false);
             return (await ReadJsonResponse<DownloadReceivedFaxResponse>(result).ConfigureAwait(false)).Payload;
+        }
+
+        public async Task<DownloadAndDeleteReceivedFaxResponse> DownloadAndDeleteReceivedFaxAsync(
+            DownloadAndDeleteReceivedFaxRequest request
+        )
+        {
+            var uri = UrlUtil.CreateUrl(Address, request.FaxID.ToString(), DownloadAndDeleteEndpoint);
+            var body = JsonUtil.CreateBody(request);
+            var result = await _HttpClient.PostAsync(uri, body).ConfigureAwait(false);
+            return (await ReadJsonResponse<DownloadAndDeleteReceivedFaxResponse>(result).ConfigureAwait(false)).Payload;
         }
 
         public async Task<ListFaxNumbersResponse> ListFaxNumbersAsync()

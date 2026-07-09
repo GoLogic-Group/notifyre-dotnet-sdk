@@ -109,6 +109,36 @@ namespace NotifyreTests.Services.Fax.FaxReceive
             result.Base64Str.Should().Be("xyz"); // see above example response
         }
 
+        /* DownloadAndDeleteReceivedFaxAsync example response for the unit test
+        {
+            "payload": {
+                "base64Str": "xyz",
+                "type": "application/pdf"
+            },
+            "success": true,
+            "statusCode": 200,
+            "message": "OK",
+            "errors": []
+        }
+        */
+        [Fact]
+        public async Task DownloadAndDeleteReceivedFaxAsync_ValidInput_ReturnsOk()
+        {
+            // Arrange
+            var service = new FaxReceiveService(_HttpHandlerFake);
+            var request = new DownloadAndDeleteReceivedFaxRequest()
+            {
+                FaxID = 15 // will be checked in http fake handler
+            };
+
+            // Act
+            var result = await service.DownloadAndDeleteReceivedFaxAsync(request);
+
+            // Assert
+            result.Base64Str.Should().Be("xyz"); // see above example response
+            result.Type.Should().Be("application/pdf");
+        }
+
         /*{
             "Numbers": [
                 {

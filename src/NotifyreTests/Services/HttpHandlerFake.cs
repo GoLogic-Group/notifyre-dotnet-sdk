@@ -448,6 +448,10 @@ namespace NotifyreTests.Services
                 msg = "{\"payload\":{\"added\":true},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
             }
 
+            else if (url.AbsoluteUri.Contains("fax/received/15/download-and-delete")) // download and delete fax received
+            {
+                msg = "{\"payload\":{\"base64Str\":\"xyz\",\"type\":\"application/pdf\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";
+            }
             else if (url.AbsoluteUri.Contains("/fax/send/conversion")) // submit fax
             {
                 msg = "{\"payload\":{\"fileName\":\"fb669b26-e0ac-4793-8898-5d4d5dd3f2a1\"},\"success\":true,\"statusCode\":200,\"message\":\"OK\",\"errors\":[]}";

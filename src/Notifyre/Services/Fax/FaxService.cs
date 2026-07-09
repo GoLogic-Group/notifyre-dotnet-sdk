@@ -20,6 +20,8 @@ namespace Notifyre
 
         public Task<DownloadReceivedFaxResponse> DownloadReceivedFaxAsync(DownloadReceivedFaxRequest request) => _receiveService.DownloadReceivedFaxAsync(request);
 
+        public Task<DownloadAndDeleteReceivedFaxResponse> DownloadAndDeleteReceivedFaxAsync(DownloadAndDeleteReceivedFaxRequest request) => _receiveService.DownloadAndDeleteReceivedFaxAsync(request);
+
         public Task<ListFaxNumbersResponse> ListFaxNumbersAsync() => _receiveService.ListFaxNumbersAsync();
 
         public Task<ListSentFaxesResponse> ListSentFaxesAsync(ListSentFaxesRequest request) => _sendService.ListSentFaxesAsync(request);
